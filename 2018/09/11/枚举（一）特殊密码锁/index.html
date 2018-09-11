@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>001：特殊密码锁 | Deklban的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="问题还原001:特殊密码锁总时间限制: 1000ms 内存限制: 1024kB 描述有一种特殊的二进制密码锁，由n个相连的按钮组成（n&amp;lt;30），按钮有凹/凸两种状态，用手按按钮会改变其状态。 然而让人头疼的是，当你按一个按钮时，跟它相邻的两个按钮状态也会反转。当然，如果你按的是最左或者最右边的按钮，该按钮只会影响到跟它相邻的一个按钮。 当前密码锁状态已知，需要解决的问题是，你至少需要按多少次">
+  <meta name="description" content="问题还原001:特殊密码锁总时间限制: 1000ms 内存限制: 1024kB">
 <meta name="keywords" content="C++; 算法; 枚举">
 <meta property="og:type" content="article">
 <meta property="og:title" content="001：特殊密码锁">
 <meta property="og:url" content="http://yoursite.com/2018/09/11/枚举（一）特殊密码锁/index.html">
 <meta property="og:site_name" content="Deklban的博客">
-<meta property="og:description" content="问题还原001:特殊密码锁总时间限制: 1000ms 内存限制: 1024kB 描述有一种特殊的二进制密码锁，由n个相连的按钮组成（n&amp;lt;30），按钮有凹/凸两种状态，用手按按钮会改变其状态。 然而让人头疼的是，当你按一个按钮时，跟它相邻的两个按钮状态也会反转。当然，如果你按的是最左或者最右边的按钮，该按钮只会影响到跟它相邻的一个按钮。 当前密码锁状态已知，需要解决的问题是，你至少需要按多少次">
+<meta property="og:description" content="问题还原001:特殊密码锁总时间限制: 1000ms 内存限制: 1024kB">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-11T09:27:59.238Z">
+<meta property="og:updated_time" content="2018-09-11T09:30:51.839Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="001：特殊密码锁">
-<meta name="twitter:description" content="问题还原001:特殊密码锁总时间限制: 1000ms 内存限制: 1024kB 描述有一种特殊的二进制密码锁，由n个相连的按钮组成（n&amp;lt;30），按钮有凹/凸两种状态，用手按按钮会改变其状态。 然而让人头疼的是，当你按一个按钮时，跟它相邻的两个按钮状态也会反转。当然，如果你按的是最左或者最右边的按钮，该按钮只会影响到跟它相邻的一个按钮。 当前密码锁状态已知，需要解决的问题是，你至少需要按多少次">
+<meta name="twitter:description" content="问题还原001:特殊密码锁总时间限制: 1000ms 内存限制: 1024kB">
   
     <link rel="alternative" href="/atom.xml" title="Deklban的博客" type="application/atom+xml">
   
@@ -172,14 +172,14 @@
 
         
         <a href="/2018/09/11/枚举（一）特殊密码锁/" class="archive-article-date">
-  	<time datetime="2018-09-11T08:32:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-11</time>
+  	<time datetime="2018-09-11T09:28:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="问题还原"><a href="#问题还原" class="headerlink" title="问题还原"></a>问题还原</h4><h5 id="001-特殊密码锁"><a href="#001-特殊密码锁" class="headerlink" title="001:特殊密码锁"></a>001:特殊密码锁</h5><p>总时间限制: 1000ms 内存限制: 1024kB</p>
+        <h4 id="问题还原"><a href="#问题还原" class="headerlink" title="问题还原"></a>问题还原</h4><h5 id="001-特殊密码锁"><a href="#001-特殊密码锁" class="headerlink" title="001:特殊密码锁"></a>001:特殊密码锁</h5><p>总时间限制: 1000ms 内存限制: 1024kB<br><a id="more"></a></p>
 <h5 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h5><p>有一种特殊的二进制密码锁，由n个相连的按钮组成（n&lt;30），按钮有凹/凸两种状态，用手按按钮会改变其状态。</p>
 <p>然而让人头疼的是，当你按一个按钮时，跟它相邻的两个按钮状态也会反转。当然，如果你按的是最左或者最右边的按钮，该按钮只会影响到跟它相邻的一个按钮。</p>
 <p>当前密码锁状态已知，需要解决的问题是，你至少需要按多少次按钮，才能将密码锁转变为所期望的目标状态。</p>
@@ -214,7 +214,8 @@
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">   int GetBit(int c,int i)//取c的第i位</span><br><span class="line">&#123;</span><br><span class="line">return(c &gt;&gt; i) &amp; 1;</span><br><span class="line"> 	&#125;</span><br></pre></td></tr></table></figure>
 
- * 翻转c的第i位：
+
+* 翻转c的第i位：
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">void FlipBit(int &amp;c, int i)&#123;</span><br><span class="line">c ^= (1 &lt;&lt; i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </code></pre><ol start="3">
