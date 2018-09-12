@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: C++, 算法, 枚举 | Deklban的博客</title>
+  <title>002:拨钟问题 | Deklban的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="每天都打满鸡血">
-<meta name="keywords" content="电气，小白，编程">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Deklban的博客">
-<meta property="og:url" content="http://yoursite.com/tags/C-算法-枚举/index.html">
+  <meta name="description" content="问题还原002: 拨钟问题总时间限制: 1000ms 内存限制: 65536kB 描述有9个时钟，排成一个3*3的矩阵。">
+<meta name="keywords" content="c++,算法,枚举">
+<meta property="og:type" content="article">
+<meta property="og:title" content="002:拨钟问题">
+<meta property="og:url" content="http://yoursite.com/2018/09/12/002-拨钟问题/index.html">
 <meta property="og:site_name" content="Deklban的博客">
-<meta property="og:description" content="每天都打满鸡血">
+<meta property="og:description" content="问题还原002: 拨钟问题总时间限制: 1000ms 内存限制: 65536kB 描述有9个时钟，排成一个3*3的矩阵。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-12T07:54:20.535Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Deklban的博客">
-<meta name="twitter:description" content="每天都打满鸡血">
+<meta name="twitter:title" content="002:拨钟问题">
+<meta name="twitter:description" content="问题还原002: 拨钟问题总时间限制: 1000ms 内存限制: 65536kB 描述有9个时钟，排成一个3*3的矩阵。">
   
     <link rel="alternative" href="/atom.xml" title="Deklban的博客" type="application/atom+xml">
   
@@ -158,60 +159,200 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-002-拨钟问题" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/11/枚举（一）特殊密码锁/" class="archive-article-date">
-  	<time datetime="2018-09-11T09:28:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-11</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/11/枚举（一）特殊密码锁/">001：特殊密码锁</a>
+    <h1 class="article-title" itemprop="name">
+      002:拨钟问题
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/09/12/002-拨钟问题/" class="archive-article-date">
+  	<time datetime="2018-09-12T07:25:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="问题还原"><a href="#问题还原" class="headerlink" title="问题还原"></a>问题还原</h3><h5 id="002-拨钟问题"><a href="#002-拨钟问题" class="headerlink" title="002: 拨钟问题"></a>002: 拨钟问题</h5><p>总时间限制: 1000ms 内存限制: 65536kB</p>
+<h5 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h5><p>有9个时钟，排成一个3*3的矩阵。</p>
+<a id="more"></a>
+<pre><code>|-------|    |-------|    |-------|
+|       |    |       |    |   |   |
+|---O   |    |---O   |    |   O   |
+|       |    |       |    |       |
+|-------|    |-------|    |-------|
+A            B            C    
+
+|-------|    |-------|    |-------|
+|       |    |       |    |       |
+|   O   |    |   O   |    |   O   |
+|   |   |    |   |   |    |   |   |
+|-------|    |-------|    |-------|
+D            E            F    
+
+|-------|    |-------|    |-------|
+|       |    |       |    |       |
+|   O   |    |   O---|    |   O   |
+|   |   |    |       |    |   |   |
+|-------|    |-------|    |-------|
+G            H            I    
+                (图 1)
+</code></pre><p>现在需要用最少的移动，将9个时钟的指针都拨到12点的位置。共允许有9种不同的移动。如下表所示，每个移动会将若干个时钟的指针沿顺时针方向拨动90度。</p>
+<pre><code>移动    影响的时钟
+
+ 1         ABDE
+ 2         ABC
+ 3         BCEF
+ 4         ADG
+ 5         BDEFH
+ 6         CFI
+ 7         DEGH
+ 8         GHI
+ 9         EFHI   
+</code></pre><h5 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h5><p>9个整数，表示各时钟指针的起始位置，相邻两个整数之间用单个空格隔开。其中，0=12点、1=3点、2=6点、3=9点。</p>
+<h5 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h5><p>输出一个最短的移动序列，使得9个时钟的指针都指向12点。按照移动的序号从小到大输出结果。相邻两个整数之间用单个空格隔开。</p>
+<h5 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h5><pre><code>3 3 0 
+2 2 2 
+2 1 2 
+</code></pre><h5 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h5><pre><code>4 5 8 9 
+</code></pre><h3 id="解题分析"><a href="#解题分析" class="headerlink" title="解题分析"></a>解题分析</h3><p>由于问题的规模是固定的，故可以使用暴力穷举的方式进行解题，最多有4<sup>9</sup>个组合，我也是使用的这种方法进行的解题，大的面上很简单，有一个小细节在这里说一下。<br>最后输出的时候，因为每种操作不一定只进行了一次，因此采用下列语句输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (cur = 0; cur &lt; 9; cur++)</span><br><span class="line">  while (move_count[cur]--)</span><br><span class="line">   cout&lt;&lt;cur + 1&lt;&lt;&quot; &quot;;</span><br></pre></td></tr></table></figure>
+<p>另外还有一一种做法就是类似于之前的熄灯问题和密码锁问题，找到一个局部，然后顺次分析。</p>
+<p>对方法1,2,3进行枚举，每种方法实施0–3次，共4<sup>3</sup>种情况。如果我们确定了1,2,3的情况属，则将得到灯A,B,C的状态，而只有移动4能够改变A，移动5能够改变B，移动6能够改变C，那么移动4–6的次数也确定了。同样的，这时只有移动7能够改变D，移动9能够改变F，这时移动7和9的次数也确定了。最后，时钟ABCDF都已经符合要求，EGHI还没有确定，剩下的只有移动8能够改变GHI，所以只要检查E是否已经达到要求并且GHI的时钟数是否相等即可。最后找到最小移动次数即可。</p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>我只使用暴力枚举进行了实现，代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;cstdio&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line"> int oriState[9] = &#123;0&#125;;</span><br><span class="line"> for (int i = 0; i &lt; 9; i++)</span><br><span class="line">  cin&gt;&gt;oriState[i];</span><br><span class="line"> int move_count[9] = &#123;0&#125;;</span><br><span class="line"> int min_count = 99;</span><br><span class="line"> for (int i1 = 0; i1 &lt; 4; i1++)</span><br><span class="line">  for (int i2 = 0; i2 &lt; 4; i2++)</span><br><span class="line">   for (int i3 = 0; i3 &lt; 4; i3++)</span><br><span class="line">    for (int i4 = 0; i4 &lt; 4; i4++)</span><br><span class="line">     for (int i5 = 0; i5 &lt; 4; i5++)</span><br><span class="line">      for (int i6 = 0; i6 &lt; 4; i6++)</span><br><span class="line">       for (int i7 = 0; i7 &lt; 4; i7++)</span><br><span class="line">        for (int i8 = 0; i8 &lt; 4; i8++)</span><br><span class="line">         for (int i9 = 0; i9 &lt; 4; i9++)</span><br><span class="line">         &#123;</span><br><span class="line">          if ((0 == (i1 + i2 + i4 + oriState[0]) % 4) &amp;&amp; (0 == (i1 + i2 + i3 + i5 + oriState[1])</span><br><span class="line">              % 4) &amp;&amp; (0 == (i2 + i3 + i6 + oriState[2]) % 4) &amp;&amp; (0 == (i1 + i4 + i5 + i7 +</span><br><span class="line">              oriState[3]) % 4) &amp;&amp; (0 == (i1 + i3 + i5 + i7 + i9 + oriState[4]) % 4) &amp;&amp; (0 ==</span><br><span class="line">              (i3 + i5 + i6 + i9 + oriState[5])% 4) &amp;&amp; (0 == (i4 + i7 + i8 + oriState[6]) % 4)</span><br><span class="line">          &amp;&amp; (0 == (i5 + i7 + i8 + i9 + oriState[7])% 4) &amp;&amp; (0 == (i6 + i8 + i9 + oriState[8]) % 4))</span><br><span class="line">          &#123;</span><br><span class="line">           int sum = i1 + i2 + i3 + i4 + i5 + i6 + i7 + i8 + i9;</span><br><span class="line">           if (min_count &gt; sum)</span><br><span class="line">           &#123;</span><br><span class="line">            min_count = sum;</span><br><span class="line">            move_count[0] = i1;</span><br><span class="line">            move_count[1] = i2;</span><br><span class="line">            move_count[2] = i3;</span><br><span class="line">            move_count[3] = i4;</span><br><span class="line">            move_count[4] = i5;</span><br><span class="line">            move_count[5] = i6;</span><br><span class="line">            move_count[6] = i7;</span><br><span class="line">            move_count[7] = i8;</span><br><span class="line">            move_count[8] = i9;</span><br><span class="line">           &#125;</span><br><span class="line">          &#125;</span><br><span class="line">         &#125;</span><br><span class="line"> int cur = 0;</span><br><span class="line"> for (cur = 0; cur &lt; 9; cur++)</span><br><span class="line">  while (move_count[cur]--)</span><br><span class="line">   cout&lt;&lt;cur + 1&lt;&lt;&quot; &quot;;</span><br><span class="line"> cout&lt;&lt;endl;</span><br><span class="line"> return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">C++, 算法, 枚举</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c++</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">枚举</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/12/002-拨钟问题/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/09/12/C-动态内存分配/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">用new运算符实现动态内存分配</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -234,9 +375,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
@@ -329,7 +470,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">语法</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">枚举</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -337,7 +486,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C++, 算法, 枚举</a>
+                <a href="javascript:void(0)" class="js-tag color3">语法</a>
               </li>
             
             <div class="clearfix"></div>
