@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Deklban的博客">
 <meta property="og:description" content="用法用法一：分配一个变量P = new T; 其中T是任意类型名，P是类型为T*的指针。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-12T04:44:47.281Z">
+<meta property="og:updated_time" content="2018-09-12T04:46:55.018Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用new运算符实现动态内存分配">
 <meta name="twitter:description" content="用法用法一：分配一个变量P = new T; 其中T是任意类型名，P是类型为T*的指针。">
@@ -200,7 +200,7 @@
 <h5 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h5><p>123,456</p>
 <h5 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h5><p><code>int * a[]</code>是定义了一个指针数组，即数组中存放的都是指针<br><code>*a[2] = 123;</code>实际上是取了存放在a[2]中的地址的内容，因此数组在第三个位置处只需要1个量来存放地址，而前两个用不到，设为<code>NULL</code><br><code>a[3][5] =456；</code>可以理解为在数组a的第4个位置需要6个空间，因此需要<code>new int[6]</code></p>
 <h5 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h5><p>初始化语句为:</p>
-<p><code>int  * a[] = {NULL, NULL, new int[1], new int[6]}</code></p>
+<p><strong><code>int  * a[] = {NULL, NULL, new int[1], new int[6]}</code></strong></p>
 
       
 
@@ -445,11 +445,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C++, 算法, 枚举</a>
+                <a href="javascript:void(0)" class="js-tag color3">生活</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">生活</a>
+                <a href="javascript:void(0)" class="js-tag color2">C++, 算法, 枚举</a>
               </li>
             
             <div class="clearfix"></div>
