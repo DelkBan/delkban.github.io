@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 语法 | Deklban的博客</title>
+  <title>递归基础：求阶乘与汉诺塔问题 | Deklban的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="每天都打满鸡血">
-<meta name="keywords" content="电气，小白，编程">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Deklban的博客">
-<meta property="og:url" content="http://yoursite.com/tags/语法/index.html">
+  <meta name="description" content="本文将简单介绍递归的概念，并用两个简单的例子进行说明 递归的基本概念一个函数调用其自身，就是递归。和普通函数调用一样，都是通过栈实现的。 递归的作用主要有：  替代多重循环 解决本来就是用递归形式定义的问题 将问题分解为规模更小的子问题进行求解  求n!的递归函数1234567int Factorial(int n)&amp;#123;    if(n == 0)    	return 1;    els">
+<meta name="keywords" content="c++,算法,递归">
+<meta property="og:type" content="article">
+<meta property="og:title" content="递归基础：求阶乘与汉诺塔问题">
+<meta property="og:url" content="http://yoursite.com/2018/09/14/递归基础：求阶乘/index.html">
 <meta property="og:site_name" content="Deklban的博客">
-<meta property="og:description" content="每天都打满鸡血">
+<meta property="og:description" content="本文将简单介绍递归的概念，并用两个简单的例子进行说明 递归的基本概念一个函数调用其自身，就是递归。和普通函数调用一样，都是通过栈实现的。 递归的作用主要有：  替代多重循环 解决本来就是用递归形式定义的问题 将问题分解为规模更小的子问题进行求解  求n!的递归函数1234567int Factorial(int n)&amp;#123;    if(n == 0)    	return 1;    els">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-14T12:48:28.996Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Deklban的博客">
-<meta name="twitter:description" content="每天都打满鸡血">
+<meta name="twitter:title" content="递归基础：求阶乘与汉诺塔问题">
+<meta name="twitter:description" content="本文将简单介绍递归的概念，并用两个简单的例子进行说明 递归的基本概念一个函数调用其自身，就是递归。和普通函数调用一样，都是通过栈实现的。 递归的作用主要有：  替代多重循环 解决本来就是用递归形式定义的问题 将问题分解为规模更小的子问题进行求解  求n!的递归函数1234567int Factorial(int n)&amp;#123;    if(n == 0)    	return 1;    els">
   
     <link rel="alternative" href="/atom.xml" title="Deklban的博客" type="application/atom+xml">
   
@@ -158,36 +159,48 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-递归基础：求阶乘" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/12/C-动态内存分配/" class="archive-article-date">
-  	<time datetime="2018-09-12T04:05:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-12</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/12/C-动态内存分配/">用new运算符实现动态内存分配</a>
+    <h1 class="article-title" itemprop="name">
+      递归基础：求阶乘与汉诺塔问题
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/09/14/递归基础：求阶乘/" class="archive-article-date">
+  	<time datetime="2018-09-14T08:08:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文将简单介绍递归的概念，并用两个简单的例子进行说明</p>
+<h4 id="递归的基本概念"><a href="#递归的基本概念" class="headerlink" title="递归的基本概念"></a>递归的基本概念</h4><p>一个函数调用其自身，就是递归。和普通函数调用一样，都是通过栈实现的。</p>
+<p>递归的作用主要有：</p>
+<ol>
+<li>替代多重循环</li>
+<li>解决本来就是用递归形式定义的问题</li>
+<li>将问题分解为规模更小的子问题进行求解</li>
+</ol>
+<h4 id="求n-的递归函数"><a href="#求n-的递归函数" class="headerlink" title="求n!的递归函数"></a>求n!的递归函数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">int Factorial(int n)</span><br><span class="line">&#123;</span><br><span class="line">    if(n == 0)</span><br><span class="line">    	return 1;</span><br><span class="line">    else</span><br><span class="line">    	return n * Factorial(n - 1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样输入一个n，就会进行判断，如果n大于0，就会执行Factorial(n-1)，以此迭代，直到n达到0，然后再逐个返回值。</p>
+<h4 id="汉诺塔问题-Hanoi"><a href="#汉诺塔问题-Hanoi" class="headerlink" title="汉诺塔问题(Hanoi)"></a>汉诺塔问题(Hanoi)</h4><h5 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h5><p>古代有一个梵塔，塔内有三个座A、B、C，A座上有n个盘子，盘子大小不等，大的在下，小的在上。有一个和尚想把这n个盘子从A移动到C，但每次只能允许移动一个盘子，并且在移动的过程中，3个座上的盘子始终保持大盘在下，小盘在上。在移动过程中可以利用B座，要求输出移动的步骤。</p>
+<h6 id="简单版代码"><a href="#简单版代码" class="headerlink" title="简单版代码"></a>简单版代码</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#include&lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">//下面的函数将n个盘子从src经过mid移动到dest</span><br><span class="line">void Hanoi(int n,char src,char mid,char dest)</span><br><span class="line">&#123;</span><br><span class="line">	if( n == 1)&#123; //只有一个盘子，直接移动 </span><br><span class="line">		cout &lt;&lt; src &lt;&lt;&quot;-&gt;&quot;&lt;&lt; dest &lt;&lt;endl;</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	Hanoi(n-1,src,dest,mid); //将src上的通过dest移动到mid </span><br><span class="line">	cout &lt;&lt; src &lt;&lt; &quot;-&gt;&quot; &lt;&lt; dest &lt;&lt; endl;</span><br><span class="line">	Hanoi(n-1,mid,src,dest); //最后将n-1个盘子从mid移动到dest </span><br><span class="line">	return ;</span><br><span class="line"> &#125; </span><br><span class="line"> </span><br><span class="line"> int main()</span><br><span class="line"> &#123;</span><br><span class="line"> 	int n;</span><br><span class="line"> 	cin &gt;&gt; n;</span><br><span class="line"> 	Hanoi(n,&apos;A&apos;,&apos;B&apos;,&apos;C&apos;);</span><br><span class="line"> 	return 0;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>这种方法能够实现目标，但是空间复杂度很高，在系统里面提交的话无法通过。</p>
+<h5 id="提交能通过的版本"><a href="#提交能通过的版本" class="headerlink" title="提交能通过的版本"></a>提交能通过的版本</h5><p>把上面的一整步分开来做，减少递归深度</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -197,25 +210,116 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">语法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">递归</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/14/递归基础：求阶乘/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/09/12/002-拨钟问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">002:拨钟问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -238,9 +342,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
