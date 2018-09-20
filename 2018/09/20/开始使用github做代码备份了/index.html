@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>用new运算符实现动态内存分配 | Deklban的博客</title>
+  <title>开始使用github做代码备份了 | Deklban的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="用法用法一：分配一个变量P = new T; 其中T是任意类型名，P是类型为T*的指针。">
-<meta name="keywords" content="c++,语法">
+  <meta name="description" content="时间过得还是很快的，转眼本学期第二周已经接近尾声。 这周开始上课了，其实课安排的还是很紧张的，再加上课容量比较大，这个学期要完成的任务还是很有挑战性的。 一方面，需要上的课要尽量好好去听，还要面对最终的期末考试。另一方面，好不容易开始的慕课也不能半途而废，但是现在感觉仅仅是做作业就几乎已经花掉我所有的空闲时间了，如果老师再给我安排一些其他事情的话，还真的是有点忙不过来。 我现在打算坚持下去的慕课主">
+<meta name="keywords" content="随笔">
 <meta property="og:type" content="article">
-<meta property="og:title" content="用new运算符实现动态内存分配">
-<meta property="og:url" content="http://yoursite.com/2018/09/12/C-动态内存分配/index.html">
+<meta property="og:title" content="开始使用github做代码备份了">
+<meta property="og:url" content="http://yoursite.com/2018/09/20/开始使用github做代码备份了/index.html">
 <meta property="og:site_name" content="Deklban的博客">
-<meta property="og:description" content="用法用法一：分配一个变量P = new T; 其中T是任意类型名，P是类型为T*的指针。">
+<meta property="og:description" content="时间过得还是很快的，转眼本学期第二周已经接近尾声。 这周开始上课了，其实课安排的还是很紧张的，再加上课容量比较大，这个学期要完成的任务还是很有挑战性的。 一方面，需要上的课要尽量好好去听，还要面对最终的期末考试。另一方面，好不容易开始的慕课也不能半途而废，但是现在感觉仅仅是做作业就几乎已经花掉我所有的空闲时间了，如果老师再给我安排一些其他事情的话，还真的是有点忙不过来。 我现在打算坚持下去的慕课主">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-12T04:46:55.018Z">
+<meta property="og:updated_time" content="2018-09-20T12:32:22.272Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="用new运算符实现动态内存分配">
-<meta name="twitter:description" content="用法用法一：分配一个变量P = new T; 其中T是任意类型名，P是类型为T*的指针。">
+<meta name="twitter:title" content="开始使用github做代码备份了">
+<meta name="twitter:description" content="时间过得还是很快的，转眼本学期第二周已经接近尾声。 这周开始上课了，其实课安排的还是很紧张的，再加上课容量比较大，这个学期要完成的任务还是很有挑战性的。 一方面，需要上的课要尽量好好去听，还要面对最终的期末考试。另一方面，好不容易开始的慕课也不能半途而废，但是现在感觉仅仅是做作业就几乎已经花掉我所有的空闲时间了，如果老师再给我安排一些其他事情的话，还真的是有点忙不过来。 我现在打算坚持下去的慕课主">
   
     <link rel="alternative" href="/atom.xml" title="Deklban的博客" type="application/atom+xml">
   
@@ -159,48 +159,43 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-C-动态内存分配" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-开始使用github做代码备份了" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      用new运算符实现动态内存分配
+      开始使用github做代码备份了
     </h1>
   
 
         
-        <a href="/2018/09/12/C-动态内存分配/" class="archive-article-date">
-  	<time datetime="2018-09-12T04:05:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-12</time>
+        <a href="/2018/09/20/开始使用github做代码备份了/" class="archive-article-date">
+  	<time datetime="2018-09-20T11:47:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><h5 id="用法一：分配一个变量"><a href="#用法一：分配一个变量" class="headerlink" title="用法一：分配一个变量"></a>用法一：分配一个变量</h5><p><code>P = new T;</code></p>
-<p>其中<code>T</code>是任意类型名，<code>P</code>是类型为<code>T*</code>的指针。<br><a id="more"></a><br>动态分配出一片大小为<code>sizeof(T)</code>字节的内存空间，并且将该内存空间的起始地址赋值给<code>P</code>。比如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int * pn;</span><br><span class="line">pn = new int;</span><br><span class="line">* pn = 5;</span><br></pre></td></tr></table></figure>
-<p>上述初始化语句也可以合为一个：</p>
-<p><code>int * pn = new int ;</code></p>
-<h5 id="用法二：分配一个数组"><a href="#用法二：分配一个数组" class="headerlink" title="用法二：分配一个数组"></a>用法二：分配一个数组</h5><p><code>P = new T[N]</code></p>
-<p><code>T</code>：任意<strong>类型名</strong></p>
-<p><code>P</code>：类型为<code>T*</code>的指针</p>
-<p><code>N</code>：要分配的数组元素的个数，可以是整型表达式</p>
-<p>动态分配出一片大小为<strong><code>sizeof(T)*N</code></strong>字节的内存空间，并且将该内存空间的<strong>起始地址</strong>赋值给<code>p</code>。</p>
-<h5 id="一定要用delete运算符释放空间"><a href="#一定要用delete运算符释放空间" class="headerlink" title="一定要用delete运算符释放空间"></a>一定要用delete运算符释放空间</h5><p>用 <code>new</code> 动态分配的内存空间，一定要用 <code>delete</code> 运算符进行释放</p>
-<p><strong>delete 指针</strong>： 必须指向<strong>new</strong>出来的空间</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int * p =new int;</span><br><span class="line">* p = 5;</span><br><span class="line">delete p;</span><br><span class="line">delete p; //将会导致异常，一片空间不能被delete多次</span><br></pre></td></tr></table></figure>
-<p><strong>用delete释放动态分配的数组，要加”[]”：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int * p =new int[20];</span><br><span class="line">p[0] = 1;</span><br><span class="line">delete [] p;</span><br></pre></td></tr></table></figure>
-<h3 id="例题：神秘的数组初始化"><a href="#例题：神秘的数组初始化" class="headerlink" title="例题：神秘的数组初始化"></a>例题：神秘的数组初始化</h3><h5 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h5><p>填空，使得程序输出指定结果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int * a[] = &#123;</span><br><span class="line">// 在此处补充你的代码</span><br><span class="line">&#125;;</span><br><span class="line">	</span><br><span class="line">	*a[2] = 123;</span><br><span class="line">	a[3][5] = 456;</span><br><span class="line">	if(! a[0] ) &#123;</span><br><span class="line">		cout &lt;&lt; * a[2] &lt;&lt; &quot;,&quot; &lt;&lt; a[3][5];</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h5><p>无</p>
-<h5 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h5><p>123,456</p>
-<h5 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h5><p><code>int * a[]</code>是定义了一个指针数组，即数组中存放的都是指针<br><code>*a[2] = 123;</code>实际上是取了存放在a[2]中的地址的内容，因此数组在第三个位置处只需要1个量来存放地址，而前两个用不到，设为<code>NULL</code><br><code>a[3][5] =456；</code>可以理解为在数组a的第4个位置需要6个空间，因此需要<code>new int[6]</code></p>
-<h5 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h5><p>初始化语句为:</p>
-<p><strong><code>int  * a[] = {NULL, NULL, new int[1], new int[6]}</code></strong></p>
+        <p>时间过得还是很快的，转眼本学期第二周已经接近尾声。</p>
+<p>这周开始上课了，其实课安排的还是很紧张的，再加上课容量比较大，这个学期要完成的任务还是很有挑战性的。</p>
+<p>一方面，需要上的课要尽量好好去听，还要面对最终的期末考试。另一方面，好不容易开始的慕课也不能半途而废，但是现在感觉仅仅是做作业就几乎已经花掉我所有的空闲时间了，如果老师再给我安排一些其他事情的话，还真的是有点忙不过来。</p>
+<p>我现在打算坚持下去的慕课主要有这样几个：</p>
+<ul>
+<li>郭老师的编程课一、二、三</li>
+<li>数据结构</li>
+<li>数据库</li>
+<li>吴恩达的机器学习</li>
+</ul>
+<p>最近学的比较多的是郭老师的课，第一部分用大量的习题巩固编程的能力，第二部分的算法结合浙大的数据结构，提高算法能力，第三部分的面相对象编程为以后的深入学习C++打底子。但是不得不说算法课还是很有难度的，数据结构这门课也是到了不得不去图书馆借阅相关资料才能进行下去的程度。数据库的课主要目的是通过概览相关知识点并完成习题，对数据库有一个更加系统全面的认识，而吴恩达的机器学习主要是为了毕业考虑，既然老师想让做深度学习和电力系统的交叉性研究，那也要有所准备。</p>
+<p>最近的时间管理还是有一些可以改进的地方的，比如晚上回去的时间可以再稍微延后一些，比如零散时间的利用还可以更充分一些。今天得到了确切的下一级不利好的消息，也算是鞭策和警醒吧，希望我能远离毕业即失业的范围。事实上，我还是奔着能够给栗子小姐更幸福的生活去的，即便现在形势不好，我仍然认为自己有希望给她更幸福的生活。</p>
+<p>接下来的两周假期比较多，有时间坐在实验室的时候还是要尽快的把慕课作业完成好，万一错过了提交时间就很难弥补了。</p>
+<p>说个开心的事情，虽然开始用GitHub已经有一段时间了，从开始写微博开始算的话，也有十天了，但是今天我完成了第一个远程库的构建，以后的代码就可以同步到GitHub上，然后用不同的设备进行编辑啦。</p>
+<p>其实最近学到的新东西也不少，面向对象里面的构造函数、析构函数，静态成员之类的。之所以没有写到博客里面，是因为我觉着博客还是用来记录一些好的思路和方法，或者是写一些随笔，而不是当做笔记本来用。</p>
+<p>所以目前还有个事情没有很好地解决，那就是<strong>笔记本</strong>。现在我在线的笔记主要是用onenote做的，编辑起来比较自由，而且放在服务器上可以比较方便的在电脑间分享，<del>但是它存在的问题也是明显的，即在移动端很难支持</del>就在刚刚我下载了onenote的安卓客户端，感觉还挺好用的，就是同步速度大概要版本中左右，完全是可以接受的。</p>
+<p>说个题外话，这次的台风山竹影响范围还是很大的，连续三天的降雨应该和它脱不开关系。以前小的时候看电视上新闻也没有那么多的台风，环境确实也是在变化的，人类的技术也在进步，人类和环境总能在某个过程中保持平衡吧……</p>
 
       
 
@@ -214,11 +209,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">语法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
         		</li>
       		
 		</ul>
@@ -274,7 +265,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/12/C-动态内存分配/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/20/开始使用github做代码备份了/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -288,18 +279,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/09/12/002-拨钟问题/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          002:拨钟问题
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/09/11/枚举（一）特殊密码锁/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">001：特殊密码锁</div>
+    <a href="/2018/09/17/当我们一起走过/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">当我们一起走过</div>
       <i class="icon-circle-right"></i>
     </a>
   
