@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Deklban的博客</title>
+  <title>填充：setfill和setw方法 | Deklban的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="每天都打满鸡血">
-<meta name="keywords" content="电气，小白，编程">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Deklban的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="setfill()和setw()一起配合使用，可以在输出的内容中进行填充。 setfill括号内填用来填充的字符，setw用来设置总字符数。 setw后面紧跟的内容有效。 setw是设置输出宽度，默认用空格填充。">
+<meta name="keywords" content="C++,输出格式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="填充：setfill和setw方法">
+<meta property="og:url" content="http://yoursite.com/2018/09/25/setfill和setw方法/index.html">
 <meta property="og:site_name" content="Deklban的博客">
-<meta property="og:description" content="每天都打满鸡血">
+<meta property="og:description" content="setfill()和setw()一起配合使用，可以在输出的内容中进行填充。 setfill括号内填用来填充的字符，setw用来设置总字符数。 setw后面紧跟的内容有效。 setw是设置输出宽度，默认用空格填充。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-25T12:14:34.715Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Deklban的博客">
-<meta name="twitter:description" content="每天都打满鸡血">
+<meta name="twitter:title" content="填充：setfill和setw方法">
+<meta name="twitter:description" content="setfill()和setw()一起配合使用，可以在输出的内容中进行填充。 setfill括号内填用来填充的字符，setw用来设置总字符数。 setw后面紧跟的内容有效。 setw是设置输出宽度，默认用空格填充。">
   
     <link rel="alternative" href="/atom.xml" title="Deklban的博客" type="application/atom+xml">
   
@@ -158,16 +159,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-setfill和setw方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-setfill和setw方法" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/25/setfill和setw方法/">填充：setfill和setw方法</a>
+    <h1 class="article-title" itemprop="name">
+      填充：setfill和setw方法
     </h1>
   
 
@@ -183,10 +182,18 @@
         <p>setfill()和setw()一起配合使用，可以在输出的内容中进行填充。</p>
 <p>setfill括号内填用来填充的字符，setw用来设置总字符数。</p>
 <p>setw后面紧跟的内容有效。</p>
-<p>setw是设置输出宽度，默认用空格填充。
-        
-          <a class="article-more-a" href="/2018/09/25/setfill和setw方法/#more">more >></a>
-        
+<p>setw是设置输出宽度，默认用空格填充。<a id="more"></a></p>
+<p><code>cout &lt;&lt; setfill(&#39;*&#39;) &lt;&lt; setw(7) &lt;&lt; &#39;A&#39; &lt;&lt; &#39;B&#39; &lt;&lt; endl;</code></p>
+<p>将会输出<code>*****AB</code></p>
+<p>代码改为 </p>
+<p><code>cout &lt;&lt; setfill(&#39;*&#39;) &lt;&lt; setw(7) &lt;&lt; &#39;A&#39; &lt;&lt; &#39;B&#39; &lt;&lt; &lt;&lt; &#39;C&#39;&lt;&lt; endl;</code></p>
+<p>将会输出<code>****ABC</code></p>
+<p>如果在中间加上<code>left</code>，则setw后面的内容先左对齐，然后用setfill的内容补齐。</p>
+<p><code>cout &lt;&lt; setfill(&#39;*&#39;) &lt;&lt; left &lt;&lt; setw(7) &lt;&lt; &#39;A&#39; &lt;&lt; &#39;B&#39; &lt;&lt; endl;</code></p>
+<p>输出 <code>A*****B</code></p>
+<p>` cout &lt;&lt; ‘A’ &lt;&lt; setfill(‘*’) &lt;&lt; left &lt;&lt; setw(7) &lt;&lt; ‘B’ &lt;&lt; endl;</p>
+<p>输出<code>AB*****</code></p>
+
       
 
       
@@ -212,16 +219,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/25/setfill和setw方法/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/25/setfill和setw方法/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2018/09/21/返回什么才好呢/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">返回什么才好呢</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -241,741 +307,14 @@
 
 
 
-
-  
-    <article id="post-返回什么才好呢" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/21/返回什么才好呢/">返回什么才好呢</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/21/返回什么才好呢/" class="archive-article-date">
-  	<time datetime="2018-09-21T00:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>由于对引用语法的不熟悉，导致这个问题考虑了很久才明白。</p>
-<h5 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h5><ul>
-<li>引用作为返回值：类型标识符 &amp;函数名 （形参列表及类型说明） {函数体}</li>
-<li><code>a.GetObj() = m;</code> 返回结果作为是，说明其<strong>返回类型一定是个引用</strong></li>
-<li>this 指向该函数作用的对象
-        
-          <a class="article-more-a" href="/2018/09/21/返回什么才好呢/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">引用</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">类和对象</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/21/返回什么才好呢/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-开始使用github做代码备份了" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/20/开始使用github做代码备份了/">开始使用github做代码备份了</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/20/开始使用github做代码备份了/" class="archive-article-date">
-  	<time datetime="2018-09-20T11:47:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>时间过得还是很快的，转眼本学期第二周已经接近尾声。</p>
-<p>这周开始上课了，其实课安排的还是很紧张的，再加上课容量比较大，这个学期要完成的任务还是很有挑战性的。
-        
-          <a class="article-more-a" href="/2018/09/20/开始使用github做代码备份了/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/20/开始使用github做代码备份了/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-当我们一起走过" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/17/当我们一起走过/">当我们一起走过</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/17/当我们一起走过/" class="archive-article-date">
-  	<time datetime="2018-09-17T12:07:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>我<br>在旷野漂流<br>漂流的尽头<br>就是你爱的宽容</p>
-        
-          <a class="article-more-a" href="/2018/09/17/当我们一起走过/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/17/当我们一起走过/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-插入音乐" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/17/插入音乐/">Hexo博客插入音乐</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/17/插入音乐/" class="archive-article-date">
-  	<time datetime="2018-09-17T10:43:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文主要介绍博客中插入网易云音乐的几种情况<br>
-        
-          <a class="article-more-a" href="/2018/09/17/插入音乐/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">博客技巧</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/17/插入音乐/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-递归基础：求阶乘" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/14/递归基础：求阶乘/">递归基础：求阶乘与汉诺塔问题</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/14/递归基础：求阶乘/" class="archive-article-date">
-  	<time datetime="2018-09-14T08:08:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文将简单介绍递归的概念，并用两个简单的例子进行说明</p>
-<h4 id="递归的基本概念"><a href="#递归的基本概念" class="headerlink" title="递归的基本概念"></a>递归的基本概念</h4><p>一个函数调用其自身，就是递归。和普通函数调用一样，都是通过栈实现的。</p>
-        
-          <a class="article-more-a" href="/2018/09/14/递归基础：求阶乘/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">递归</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/14/递归基础：求阶乘/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-002-拨钟问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/12/002-拨钟问题/">002:拨钟问题</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/12/002-拨钟问题/" class="archive-article-date">
-  	<time datetime="2018-09-12T07:25:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="问题还原"><a href="#问题还原" class="headerlink" title="问题还原"></a>问题还原</h3><h5 id="002-拨钟问题"><a href="#002-拨钟问题" class="headerlink" title="002: 拨钟问题"></a>002: 拨钟问题</h5><p>总时间限制: 1000ms 内存限制: 65536kB</p>
-<h5 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h5><p>有9个时钟，排成一个3*3的矩阵。</p>
-        
-          <a class="article-more-a" href="/2018/09/12/002-拨钟问题/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">枚举</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/12/002-拨钟问题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-C-动态内存分配" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/12/C-动态内存分配/">用new运算符实现动态内存分配</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/12/C-动态内存分配/" class="archive-article-date">
-  	<time datetime="2018-09-12T04:05:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><h5 id="用法一：分配一个变量"><a href="#用法一：分配一个变量" class="headerlink" title="用法一：分配一个变量"></a>用法一：分配一个变量</h5><p><code>P = new T;</code></p>
-<p>其中<code>T</code>是任意类型名，<code>P</code>是类型为<code>T*</code>的指针。<br>
-        
-          <a class="article-more-a" href="/2018/09/12/C-动态内存分配/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">语法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/12/C-动态内存分配/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-枚举（一）特殊密码锁" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/11/枚举（一）特殊密码锁/">001：特殊密码锁</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/11/枚举（一）特殊密码锁/" class="archive-article-date">
-  	<time datetime="2018-09-11T09:28:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="问题还原"><a href="#问题还原" class="headerlink" title="问题还原"></a>问题还原</h3><h5 id="001-特殊密码锁"><a href="#001-特殊密码锁" class="headerlink" title="001:特殊密码锁"></a>001:特殊密码锁</h5><p>总时间限制: 1000ms 内存限制: 1024kB<br>
-        
-          <a class="article-more-a" href="/2018/09/11/枚举（一）特殊密码锁/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">枚举</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/11/枚举（一）特殊密码锁/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-我的第一篇博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/10/我的第一篇博客/">我的第一篇博客暨开学日</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/10/我的第一篇博客/" class="archive-article-date">
-  	<time datetime="2018-09-10T13:33:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="个人博客初长成"><a href="#个人博客初长成" class="headerlink" title="个人博客初长成"></a>个人博客初长成</h4><p>经过一番折腾，我的个人博客终于算是搭建起来了，虽然还有很多问题，但是起码能够记录和发布了。这里主要用来记录我学习过程中遇到的问题，有时候也会用来写一些自己的思考，内容可能会比较杂乱。</p>
-<p>做个人博客的主要目的也是想提醒自己，不要安于现状，停留在自己的舒适区，要积极的去思考问题和解决问题，热情的学习语言工具并进行练习。当然，这也是我学习过程的一个见证，如果我能坚持下去，将来再回顾相关的知识也会更加方便。</p>
-        
-          <a class="article-more-a" href="/2018/09/10/我的第一篇博客/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/10/我的第一篇博客/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -998,8 +337,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
