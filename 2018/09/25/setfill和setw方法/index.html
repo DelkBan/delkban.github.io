@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Deklban的博客">
 <meta property="og:description" content="setfill()和setw()一起配合使用，可以在输出的内容中进行填充。 setfill括号内填用来填充的字符，setw用来设置总字符数。 setw后面紧跟的内容有效。 setw是设置输出宽度，默认用空格填充。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-25T12:14:34.715Z">
+<meta property="og:updated_time" content="2018-09-25T12:17:54.149Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="填充：setfill和setw方法">
 <meta name="twitter:description" content="setfill()和setw()一起配合使用，可以在输出的内容中进行填充。 setfill括号内填用来填充的字符，setw用来设置总字符数。 setw后面紧跟的内容有效。 setw是设置输出宽度，默认用空格填充。">
@@ -193,6 +193,7 @@
 <p>输出 <code>A*****B</code></p>
 <p>` cout &lt;&lt; ‘A’ &lt;&lt; setfill(‘*’) &lt;&lt; left &lt;&lt; setw(7) &lt;&lt; ‘B’ &lt;&lt; endl;</p>
 <p>输出<code>AB*****</code></p>
+<p><strong>注意：需 <code>#include &lt;iomanip&gt;</code></strong></p>
 
       
 
@@ -445,15 +446,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">输出格式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
