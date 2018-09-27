@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>递归：表达式求值 | Deklban的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="tips问题描述输入为四则运算表达式，仅由整数、+、-、*、/、(、)组成，没有空格，要求求其值。假设运算符结果都是整数。”/“结果也是整数 例如，输入(2+3)*(5+7)+9/3 输出 63 分析使用递归的方法进行解答，首先参考下图的流程。  可以将元素分解为因子、项和表达式，其中表达式由加减号分隔，项由乘除号分隔，因子是最小单位，但可能存在用括号括起来的表达式组成的因子。 主要有三个函数，e">
-<meta name="keywords" content="C++,算法,递归">
+  <meta name="description" content="tips cin.peek()可以查看当前的输入内容，但是并不获取，cin.get()则是会将其取出来。 判断一个变量a是否是整数，使用isdigit(a)，这样可以区分数值和符号。 实时读取数值时，首先用result=0存储初值，以后每读到一个数值(char 型)都使用result = 10 * result + a - &amp;#39;0&amp;#39;，其中a是新读入的量。">
+<meta name="keywords" content="算法,C++,递归">
 <meta property="og:type" content="article">
 <meta property="og:title" content="递归：表达式求值">
 <meta property="og:url" content="http://yoursite.com/2018/09/27/递归：表达式求值/index.html">
 <meta property="og:site_name" content="Deklban的博客">
-<meta property="og:description" content="tips问题描述输入为四则运算表达式，仅由整数、+、-、*、/、(、)组成，没有空格，要求求其值。假设运算符结果都是整数。”/“结果也是整数 例如，输入(2+3)*(5+7)+9/3 输出 63 分析使用递归的方法进行解答，首先参考下图的流程。  可以将元素分解为因子、项和表达式，其中表达式由加减号分隔，项由乘除号分隔，因子是最小单位，但可能存在用括号括起来的表达式组成的因子。 主要有三个函数，e">
+<meta property="og:description" content="tips cin.peek()可以查看当前的输入内容，但是并不获取，cin.get()则是会将其取出来。 判断一个变量a是否是整数，使用isdigit(a)，这样可以区分数值和符号。 实时读取数值时，首先用result=0存储初值，以后每读到一个数值(char 型)都使用result = 10 * result + a - &amp;#39;0&amp;#39;，其中a是新读入的量。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2018/09/27/递归：表达式求值/1.png">
-<meta property="og:updated_time" content="2018-09-27T05:18:53.661Z">
+<meta property="og:updated_time" content="2018-09-27T05:21:00.843Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="递归：表达式求值">
-<meta name="twitter:description" content="tips问题描述输入为四则运算表达式，仅由整数、+、-、*、/、(、)组成，没有空格，要求求其值。假设运算符结果都是整数。”/“结果也是整数 例如，输入(2+3)*(5+7)+9/3 输出 63 分析使用递归的方法进行解答，首先参考下图的流程。  可以将元素分解为因子、项和表达式，其中表达式由加减号分隔，项由乘除号分隔，因子是最小单位，但可能存在用括号括起来的表达式组成的因子。 主要有三个函数，e">
+<meta name="twitter:description" content="tips cin.peek()可以查看当前的输入内容，但是并不获取，cin.get()则是会将其取出来。 判断一个变量a是否是整数，使用isdigit(a)，这样可以区分数值和符号。 实时读取数值时，首先用result=0存储初值，以后每读到一个数值(char 型)都使用result = 10 * result + a - &amp;#39;0&amp;#39;，其中a是新读入的量。">
 <meta name="twitter:image" content="http://yoursite.com/2018/09/27/递归：表达式求值/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Deklban的博客" type="application/atom+xml">
@@ -181,7 +181,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h5 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h5><h5 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h5><p>输入为四则运算表达式，仅由整数、+、-、*、/、(、)组成，没有空格，要求求其值。假设运算符结果都是整数。”/“结果也是整数</p>
+        <h5 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h5><ol>
+<li><code>cin.peek()</code>可以查看当前的输入内容，但是并不获取，<code>cin.get()</code>则是会将其取出来。</li>
+<li>判断一个变量a是否是整数，使用<code>isdigit(a)</code>，这样可以区分数值和符号。</li>
+<li>实时读取数值时，首先用<code>result=0</code>存储初值，以后每读到一个数值(char 型)都使用<code>result = 10 * result + a - &#39;0&#39;</code>，其中a是新读入的量。<a id="more"></a>
+<h5 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h5></li>
+</ol>
+<p>输入为四则运算表达式，仅由整数、+、-、*、/、(、)组成，没有空格，要求求其值。假设运算符结果都是整数。”/“结果也是整数</p>
 <p>例如，输入<code>(2+3)*(5+7)+9/3</code></p>
 <p>输出 <code>63</code></p>
 <h5 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h5><p>使用递归的方法进行解答，首先参考下图的流程。</p>
@@ -207,11 +213,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -442,14 +448,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">输出格式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
@@ -458,11 +456,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">博客技巧</a>
+                <a href="javascript:void(0)" class="js-tag color5">输出格式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -471,6 +473,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">类和对象</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">博客技巧</a>
               </li>
              
               <li class="article-tag-list-item">
