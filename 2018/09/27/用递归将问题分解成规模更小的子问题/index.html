@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>我的第一篇博客暨开学日 | Deklban的博客</title>
+  <title>用递归将问题分解成规模更小的子问题 | Deklban的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="个人博客初长成经过一番折腾，我的个人博客终于算是搭建起来了，虽然还有很多问题，但是起码能够记录和发布了。这里主要用来记录我学习过程中遇到的问题，有时候也会用来写一些自己的思考，内容可能会比较杂乱。 做个人博客的主要目的也是想提醒自己，不要安于现状，停留在自己的舒适区，要积极的去思考问题和解决问题，热情的学习语言工具并进行练习。当然，这也是我学习过程的一个见证，如果我能坚持下去，将来再回顾相关的知识">
-<meta name="keywords" content="随笔">
+  <meta name="description" content="Tips此类问题主要是要找到递推公式，一定要考虑到所有的情况，代码一般都不复杂">
+<meta name="keywords" content="算法,C++,递归">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我的第一篇博客暨开学日">
-<meta property="og:url" content="http://yoursite.com/2018/09/10/我的第一篇博客/index.html">
+<meta property="og:title" content="用递归将问题分解成规模更小的子问题">
+<meta property="og:url" content="http://yoursite.com/2018/09/27/用递归将问题分解成规模更小的子问题/index.html">
 <meta property="og:site_name" content="Deklban的博客">
-<meta property="og:description" content="个人博客初长成经过一番折腾，我的个人博客终于算是搭建起来了，虽然还有很多问题，但是起码能够记录和发布了。这里主要用来记录我学习过程中遇到的问题，有时候也会用来写一些自己的思考，内容可能会比较杂乱。 做个人博客的主要目的也是想提醒自己，不要安于现状，停留在自己的舒适区，要积极的去思考问题和解决问题，热情的学习语言工具并进行练习。当然，这也是我学习过程的一个见证，如果我能坚持下去，将来再回顾相关的知识">
+<meta property="og:description" content="Tips此类问题主要是要找到递推公式，一定要考虑到所有的情况，代码一般都不复杂">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-12T12:49:30.915Z">
+<meta property="og:updated_time" content="2018-09-27T11:33:11.743Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的第一篇博客暨开学日">
-<meta name="twitter:description" content="个人博客初长成经过一番折腾，我的个人博客终于算是搭建起来了，虽然还有很多问题，但是起码能够记录和发布了。这里主要用来记录我学习过程中遇到的问题，有时候也会用来写一些自己的思考，内容可能会比较杂乱。 做个人博客的主要目的也是想提醒自己，不要安于现状，停留在自己的舒适区，要积极的去思考问题和解决问题，热情的学习语言工具并进行练习。当然，这也是我学习过程的一个见证，如果我能坚持下去，将来再回顾相关的知识">
+<meta name="twitter:title" content="用递归将问题分解成规模更小的子问题">
+<meta name="twitter:description" content="Tips此类问题主要是要找到递推公式，一定要考虑到所有的情况，代码一般都不复杂">
   
     <link rel="alternative" href="/atom.xml" title="Deklban的博客" type="application/atom+xml">
   
@@ -159,47 +159,85 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-我的第一篇博客" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-用递归将问题分解成规模更小的子问题" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      我的第一篇博客暨开学日
+      用递归将问题分解成规模更小的子问题
     </h1>
   
 
         
-        <a href="/2018/09/10/我的第一篇博客/" class="archive-article-date">
-  	<time datetime="2018-09-10T13:33:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-10</time>
+        <a href="/2018/09/27/用递归将问题分解成规模更小的子问题/" class="archive-article-date">
+  	<time datetime="2018-09-27T10:21:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="个人博客初长成"><a href="#个人博客初长成" class="headerlink" title="个人博客初长成"></a>个人博客初长成</h4><p>经过一番折腾，我的个人博客终于算是搭建起来了，虽然还有很多问题，但是起码能够记录和发布了。这里主要用来记录我学习过程中遇到的问题，有时候也会用来写一些自己的思考，内容可能会比较杂乱。</p>
-<p>做个人博客的主要目的也是想提醒自己，不要安于现状，停留在自己的舒适区，要积极的去思考问题和解决问题，热情的学习语言工具并进行练习。当然，这也是我学习过程的一个见证，如果我能坚持下去，将来再回顾相关的知识也会更加方便。</p>
+        <h5 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h5><p>此类问题主要是要找到递推公式，一定要考虑到所有的情况，代码一般都不复杂</p>
 <a id="more"></a>
-<h4 id="开学第一天"><a href="#开学第一天" class="headerlink" title="开学第一天"></a>开学第一天</h4><p>今天是正式开学的第一天，其实从前天报道的时候我就没有什么感觉，经历过了二战，经历过了陪栗子小姐找工作，我对未来的方向有了大概的定夺，对接下来我要做的事情也越发的清晰了。我会在完成教学计划里面的任务之外再修好慕课中的语言课、算法课，以及吴恩达的机器学习课，在完成老师给的任务之外，还要保证每天的代码量。</p>
-<p>其实做计划，定任务这种事情已经做了很多年了，但是往往是半途而废，有始无终。但我觉着这次自己和以前不太一样了，我坚持看了以前很反感抽象的位操作程序，接触并且开始使用GitHub，而不是只停留在“在知乎上看过”，我还搭建了属于自己的博客，并计划以后长期更新。</p>
-<p>开端是好的，剩下最难的便是坚持了。</p>
-<h4 id="日常安排"><a href="#日常安排" class="headerlink" title="日常安排"></a>日常安排</h4><p>今天开会确定了以后上课时在工作日上，那么之前完整的时间将会被冲散，考虑到通勤时间的问题，其实留给我学习别的知识的时间并不是太多，更遑论任郡枝学长还建议好好学习，争取考高分，毕竟学长说了</p>
-<blockquote>
-<p>虽然不能评奖，但和自身相关的东西总是有价值的，不会白学的。</p>
-</blockquote>
-<p>那么我给自己大概的安排是这样的：</p>
+<h5 id="一、爬楼梯问题"><a href="#一、爬楼梯问题" class="headerlink" title="一、爬楼梯问题"></a>一、爬楼梯问题</h5><p>爬楼梯，每次可以走1级或者2级，输入楼梯的级数，求不同的走法数。</p>
+<p>例如，楼梯一共有三级，可以每次都走一级，或者第一次一级，第二次二级，也可以第一次两级，第二次一级。一共三种方法。</p>
+<p><strong>输入</strong></p>
+<p>包含若干行，每行包含一个正整数N，代表楼梯级数，1&lt;=N&lt;=30，每一行输入对应一行。</p>
+<p><strong>输出</strong></p>
+<p>不同的走法数，每一行输入对应一行输出</p>
+<p><strong>样例输入</strong></p>
+<pre><code>5
+8
+10
+</code></pre><p><strong>样例输出</strong></p>
+<pre><code>8
+34
+89
+</code></pre><p><strong>分析</strong></p>
+<p>整个问题可以分为两类，即先走一级和先走两级这两种，得到递推公式如下：</p>
+<p>`f(n) = f(n-1)+f(n-2)</p>
+<p>为了确保递推能够正常停止，需要增加边界条件，即n&lt;0时，返回0，n=0时，返回1</p>
+<p><strong>代码如下</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> N;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">stairs</span><span class="params">(<span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n &lt; <span class="number">0</span>)</span><br><span class="line">    	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>( n == <span class="number">0</span>)</span><br><span class="line">    	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> stairs(n<span class="number">-1</span>) + stairs(n<span class="number">-2</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; N)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; stairs(N) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="二、放苹果"><a href="#二、放苹果" class="headerlink" title="二、放苹果"></a>二、放苹果</h5><p>把M个同样的苹果放在N个同样的盘子里，允许有的盘子空着不放，问共多少种不同的分法？5,1,1和1,5,1是同一种分法。</p>
+<p><strong>输入</strong></p>
+<p>第一行是测试数据的数目t(0 &lt;=t &lt;= 20)。以下每行均包含两个整数M和N，以空格而分开。1 &lt;= M,N&lt;=10.</p>
+<p><strong>输出</strong></p>
+<p>对输入的每组数据M和N，用一行输出相应的K。</p>
+<p><strong>样例输入</strong></p>
+<pre><code>1
+7 3
+</code></pre><p><strong>样例输出</strong></p>
+<pre><code>8
+</code></pre><p><strong>分析</strong></p>
+<p>设i个苹果放在k个盘子里面的放法总数是f(i,k)，则：</p>
+<p>k &gt; i时，f(i,k) = f(i,i)<br>k &lt;= i时，总放法=有盘子为空的放法+没盘子为空的放法</p>
+<p><code>f(i,k) = f(i,k-1) + f(i-k,k)</code></p>
+<p>边界条件见具体代码</p>
+<p><strong>代码</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> m,<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>( n &gt;m )</span><br><span class="line">    	<span class="keyword">return</span> f(m,m);</span><br><span class="line">    <span class="keyword">if</span>( m == <span class="number">0</span>)</span><br><span class="line">    	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>( n &lt;= <span class="number">0</span>)</span><br><span class="line">    	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> f(m,n<span class="number">-1</span>) + f(m-n,n);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t,m,n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span>( t--)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; m &gt;&gt; n;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; f(m,n) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="三、简单的整数划分问题"><a href="#三、简单的整数划分问题" class="headerlink" title="三、简单的整数划分问题"></a>三、简单的整数划分问题</h5><p>将正整数n 表示成一系列正整数之和，n=n1+n2+…+nk, 其中n1&gt;=n2&gt;=…&gt;=nk&gt;=1 ，k&gt;=1 。<br>正整数n 的这种表示称为正整数n 的划分。正整数n 的不同的划分个数称为正整数n 的划分数。</p>
+<p><strong>输入</strong></p>
+<p>标准的输入包含若干组测试数据。每组测试数据是一个整数N(0 &lt; N &lt;= 50)。</p>
+<p><strong>输出</strong></p>
+<p>对于每组测试数据，输出N的划分数。</p>
+<p><strong>样例输入</strong></p>
+<pre><code>5
+</code></pre><p><strong>样例输出</strong></p>
+<pre><code>7
+</code></pre><p><strong>分析</strong></p>
+<p>这个问题和第二个问题很类似，假设q(n,m)是正整数n的以n1不超过m的划分数。</p>
 <ul>
-<li>保证吸收上课过程中有用的知识，尽量做到跟上课的进度</li>
-<li>跟住姥姥的数据结构与算法课、翁恺老师的JAVA课、郭老师的程序二&amp;三，认真完成作业，争取拿到证书。</li>
-<li>尽量跟住大数据、计算机网络、数据库和软件工程导论，学不过来可以适当放弃。</li>
-<li>接下来一个月主要还是打语言基础，机器学习课程暂时不开。</li>
-<li>偶尔搜索一下深度学习 &amp; 系统可靠性相关的论文，考虑论文方向。</li>
+<li>q(n,1) = 1, n &gt;= 1    用全一填，只有一种方法</li>
+<li>q(n,m) = q(n,n), m&gt;=n   </li>
+<li>q(n,n) = q(n,n-1) + 1  左值多了一种单个n 的分法</li>
+<li>q(n,m)= q(n-m,m)+q(n,m-1), n&gt;m</li>
 </ul>
-<p>其实最关键的还是要坚持，坚持每天的规律作息，坚守自己内心的信念。</p>
-<p>我已经准备好了，开始出发吧。</p>
-<h4 id="特别鸣谢"><a href="#特别鸣谢" class="headerlink" title="特别鸣谢"></a>特别鸣谢</h4><p>送花花给我最爱的栗子小姐，如果没有你，一切努力又有何意义。</p>
+<p>第四个式子即为递推公式，和前面的问题是一样的，这里正整数n的最大加数n1不大于m的划分由n1=m的划分和n1&lt;=m-1的划分组成。</p>
+<p><strong>代码</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">ways</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> i)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>( n == <span class="number">0</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span>( i == <span class="number">0</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">if</span>( i &lt;= n)</span><br><span class="line">		<span class="keyword">return</span> ways(n-i,i) + ways(n,i<span class="number">-1</span>);  <span class="comment">//用i和不用i的情况。i可以重复使用</span></span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="keyword">return</span> ways(n,i<span class="number">-1</span>);	</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; n) </span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; ways(n,n) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -213,7 +251,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">递归</a>
         		</li>
       		
 		</ul>
@@ -269,7 +315,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/10/我的第一篇博客/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/27/用递归将问题分解成规模更小的子问题/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -283,18 +329,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/09/11/枚举（一）特殊密码锁/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          001：特殊密码锁
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/09/09/DelkBan测试文章/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">DelkBan测试</div>
+    <a href="/2018/09/27/递归：表达式求值/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">递归：表达式求值</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -313,19 +350,6 @@
             </div>
         </div>
         
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#个人博客初长成"><span class="toc-number">1.</span> <span class="toc-text">个人博客初长成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#开学第一天"><span class="toc-number">2.</span> <span class="toc-text">开学第一天</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#日常安排"><span class="toc-number">3.</span> <span class="toc-text">日常安排</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#特别鸣谢"><span class="toc-number">4.</span> <span class="toc-text">特别鸣谢</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
         
     </div>
 </aside>
