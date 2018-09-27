@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>返回什么才好呢 | Deklban的博客</title>
+  <title>递归：表达式求值 | Deklban的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="由于对引用语法的不熟悉，导致这个问题考虑了很久才明白。 Tips 引用作为返回值：类型标识符 &amp;amp;函数名 （形参列表及类型说明） {函数体} a.GetObj() = m; 返回结果作为是，说明其返回类型一定是个引用 this 指向该函数作用的对象">
-<meta name="keywords" content="C++,引用,类和对象">
+  <meta name="description" content="tips问题描述输入为四则运算表达式，仅由整数、+、-、*、/、(、)组成，没有空格，要求求其值。假设运算符结果都是整数。”/“结果也是整数 例如，输入(2+3)*(5+7)+9/3 输出 63 分析使用递归的方法进行解答，首先参考下图的流程。  可以将元素分解为因子、项和表达式，其中表达式由加减号分隔，项由乘除号分隔，因子是最小单位，但可能存在用括号括起来的表达式组成的因子。 主要有三个函数，e">
+<meta name="keywords" content="C++,算法,递归">
 <meta property="og:type" content="article">
-<meta property="og:title" content="返回什么才好呢">
-<meta property="og:url" content="http://yoursite.com/2018/09/21/返回什么才好呢/index.html">
+<meta property="og:title" content="递归：表达式求值">
+<meta property="og:url" content="http://yoursite.com/2018/09/27/递归：表达式求值/index.html">
 <meta property="og:site_name" content="Deklban的博客">
-<meta property="og:description" content="由于对引用语法的不熟悉，导致这个问题考虑了很久才明白。 Tips 引用作为返回值：类型标识符 &amp;amp;函数名 （形参列表及类型说明） {函数体} a.GetObj() = m; 返回结果作为是，说明其返回类型一定是个引用 this 指向该函数作用的对象">
+<meta property="og:description" content="tips问题描述输入为四则运算表达式，仅由整数、+、-、*、/、(、)组成，没有空格，要求求其值。假设运算符结果都是整数。”/“结果也是整数 例如，输入(2+3)*(5+7)+9/3 输出 63 分析使用递归的方法进行解答，首先参考下图的流程。  可以将元素分解为因子、项和表达式，其中表达式由加减号分隔，项由乘除号分隔，因子是最小单位，但可能存在用括号括起来的表达式组成的因子。 主要有三个函数，e">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-21T00:56:51.671Z">
+<meta property="og:image" content="http://yoursite.com/2018/09/27/递归：表达式求值/1.png">
+<meta property="og:updated_time" content="2018-09-27T05:18:53.661Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="返回什么才好呢">
-<meta name="twitter:description" content="由于对引用语法的不熟悉，导致这个问题考虑了很久才明白。 Tips 引用作为返回值：类型标识符 &amp;amp;函数名 （形参列表及类型说明） {函数体} a.GetObj() = m; 返回结果作为是，说明其返回类型一定是个引用 this 指向该函数作用的对象">
+<meta name="twitter:title" content="递归：表达式求值">
+<meta name="twitter:description" content="tips问题描述输入为四则运算表达式，仅由整数、+、-、*、/、(、)组成，没有空格，要求求其值。假设运算符结果都是整数。”/“结果也是整数 例如，输入(2+3)*(5+7)+9/3 输出 63 分析使用递归的方法进行解答，首先参考下图的流程。  可以将元素分解为因子、项和表达式，其中表达式由加减号分隔，项由乘除号分隔，因子是最小单位，但可能存在用括号括起来的表达式组成的因子。 主要有三个函数，e">
+<meta name="twitter:image" content="http://yoursite.com/2018/09/27/递归：表达式求值/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Deklban的博客" type="application/atom+xml">
   
@@ -159,61 +161,40 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-返回什么才好呢" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-递归：表达式求值" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      返回什么才好呢
+      递归：表达式求值
     </h1>
   
 
         
-        <a href="/2018/09/21/返回什么才好呢/" class="archive-article-date">
-  	<time datetime="2018-09-21T00:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-21</time>
+        <a href="/2018/09/27/递归：表达式求值/" class="archive-article-date">
+  	<time datetime="2018-09-27T04:11:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>由于对引用语法的不熟悉，导致这个问题考虑了很久才明白。</p>
-<h5 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h5><ul>
-<li>引用作为返回值：类型标识符 &amp;函数名 （形参列表及类型说明） {函数体}</li>
-<li><code>a.GetObj() = m;</code> 返回结果作为是，说明其<strong>返回类型一定是个引用</strong></li>
-<li>this 指向该函数作用的对象<a id="more"></a>
-</li>
-</ul>
-<h5 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h5><p>程序填空，使其按要求输出</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">class A &#123;</span><br><span class="line">public:</span><br><span class="line">	int val;</span><br><span class="line"></span><br><span class="line">	A(int</span><br><span class="line">// 在此处补充你的代码</span><br><span class="line">&#125;;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int m,n;</span><br><span class="line">	A a;</span><br><span class="line">	cout &lt;&lt; a.val &lt;&lt; endl;</span><br><span class="line">	while(cin &gt;&gt; m &gt;&gt; n) &#123;</span><br><span class="line">		a.GetObj() = m;</span><br><span class="line">		cout &lt;&lt; a.val &lt;&lt; endl;</span><br><span class="line">		a.GetObj() = A(n);</span><br><span class="line">		cout &lt;&lt; a.val&lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h5><p>多组数据，每组一行，是整数m和n</p>
-<h5 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h5><p>先输出一行：<br>123<br>然后，对每组数据，输出两行，第一行是m,第二行是n</p>
-<h5 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h5><pre><code>2 3
-4 5
-</code></pre><h5 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h5><pre><code>123
-2
-3
-4
-5
-</code></pre><h5 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h5><p>主函数中，首先创建了类A的一个对象a，输出a中的val值，而通过对比输出可知，需要定义val的值为123。那么如何给val赋值呢？</p>
-<p><strong>使用构造函数</strong></p>
-<p><code>A(int x=123) {val = x;}</code> 即为类的构造函数，在生成对象时自动调用。</p>
-<p>接下来对输入的内容进行处理</p>
-<p><code>a.GetObj() = m;</code> 左边是调用了a的成员函数，而其返回结果作为<strong>左值</strong>，说明其<strong>返回类型一定是个引用</strong></p>
-<h4 id="引用作为返回值"><a href="#引用作为返回值" class="headerlink" title="引用作为返回值"></a>引用作为返回值</h4><p>要以引用作为返回函数值，则函数定义时要按照以下格式：</p>
-<p><strong> 类型标识符 &amp;函数名 （形参列表及类型说明） {函数体} </strong></p>
-<p>其最大好处是，内存中不会产生被返回函数的副本。</p>
-<p>回到这个问题中来，填入的代码如下：</p>
-<pre><code>int x=123){
-        val = x;
-    }
-    A &amp;GetObj(){
-        return *this;  
-    }
-</code></pre><p>第二个函数中，A是类型标识符，此函数的返回值是引用，<strong>this指向该函数作用的对象</strong>，GetOBbj作用的对象显然是a，因此this中存放的是指向a的地址，如果前面不加 * 的话，就会返回一个地址。这样m的值就赋值给了val。</p>
-
+        <h5 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h5><h5 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h5><p>输入为四则运算表达式，仅由整数、+、-、*、/、(、)组成，没有空格，要求求其值。假设运算符结果都是整数。”/“结果也是整数</p>
+<p>例如，输入<code>(2+3)*(5+7)+9/3</code></p>
+<p>输出 <code>63</code></p>
+<h5 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h5><p>使用递归的方法进行解答，首先参考下图的流程。</p>
+<p><img src="1.png" alt=""></p>
+<p>可以将元素分解为因子、项和表达式，其中表达式由加减号分隔，项由乘除号分隔，因子是最小单位，但可能存在用括号括起来的表达式组成的因子。</p>
+<p>主要有三个函数，expression(),term()和factor()，分别对应表达式、项和因子。从结构上讲，expression()和term()十分相仿，而factor()则增加了一个获取输入字符的工作。</p>
+<p>值得注意的几点：</p>
+<ol>
+<li><code>cin.peek()</code>可以查看当前的输入内容，但是并不获取，<code>cin.get()</code>则是会将其取出来。使用<code>cin.peek()</code>可以对加下来输入的字符进行判断，然后再用无左值的<code>cin.get()</code>将字符取出。</li>
+<li>判断一个变量a是否是整数，使用<code>isdigit(a)</code>，这样可以区分数值和符号。</li>
+<li>实时读取数值时，首先用<code>result=0</code>存储初值，以后每读到一个数值(char 型)都使用<code>result = 10 * result + a - &#39;0&#39;</code>，其中a是新读入的量。这样做的原因是既然获取到了下一个数字，说明之前的数字都在更高位，因此通过乘10来提高他的位次。</li>
+</ol>
+<h5 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//w3t1</span></span><br><span class="line"><span class="comment">//表达式求值</span></span><br><span class="line"> </span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="comment">//#include&lt;cstring&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">expression</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">term</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">factor</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//读入一个表达式并且返回值 </span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">expression</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> result = term(); <span class="comment">//读取项，若只有一项则直接返回 </span></span><br><span class="line">	<span class="keyword">while</span>(<span class="literal">true</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">char</span> op = <span class="built_in">cin</span>.peek(); <span class="comment">//查看但是不取出 </span></span><br><span class="line">		<span class="keyword">if</span> (op == <span class="string">'+'</span> || op == <span class="string">'-'</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">cin</span>.get(); <span class="comment">//将符号取出来 </span></span><br><span class="line">			<span class="keyword">int</span> value = term(); <span class="comment">//读取下一项</span></span><br><span class="line">			<span class="keyword">if</span>(op == <span class="string">'+'</span>)</span><br><span class="line">				result += value;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				result -= value; </span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">	 </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">term</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> result = factor();<span class="comment">//读取因子</span></span><br><span class="line">	<span class="keyword">while</span>(<span class="literal">true</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">char</span> op = <span class="built_in">cin</span>.peek();</span><br><span class="line">		<span class="keyword">if</span> (op == <span class="string">'*'</span> || op == <span class="string">'/'</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">cin</span>.get();</span><br><span class="line">			<span class="keyword">int</span> value = factor(); <span class="comment">//读取下一项</span></span><br><span class="line">			<span class="keyword">if</span>(op == <span class="string">'*'</span>)</span><br><span class="line">				result *= value;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				result /= value; </span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">factor</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> result = <span class="number">0</span>;<span class="comment">//因子默认是没有的</span></span><br><span class="line">	<span class="keyword">char</span> d = <span class="built_in">cin</span>.peek();</span><br><span class="line">	<span class="keyword">if</span>(d == <span class="string">'('</span>) </span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cin</span>.get();</span><br><span class="line">		result = expression();<span class="comment">//获取括号中表达式的结果</span></span><br><span class="line">		<span class="built_in">cin</span>.get(); <span class="comment">//取出右括号 </span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">while</span>(<span class="built_in">isdigit</span>(d))</span><br><span class="line">		&#123;</span><br><span class="line">			result = <span class="number">10</span>*result+d-<span class="string">'0'</span>; <span class="comment">//如果读取到的下一位是数字，则结果要在原来的基础上乘10，再加上读取到的数据</span></span><br><span class="line">			<span class="built_in">cin</span>.get();<span class="comment">//取出当前数字 </span></span><br><span class="line">			d = <span class="built_in">cin</span>.peek();<span class="comment">//识别下一个数字 </span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; expression() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -230,11 +211,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">引用</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">类和对象</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">递归</a>
         		</li>
       		
 		</ul>
@@ -290,7 +271,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/21/返回什么才好呢/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/27/递归：表达式求值/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -304,18 +285,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/09/25/setfill和setw方法/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          填充：setfill和setw方法
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/09/20/开始使用github做代码备份了/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">开始使用github做代码备份了</div>
+    <a href="/2018/09/26/魔兽世界之一：备战/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">魔兽世界之一：备战</div>
       <i class="icon-circle-right"></i>
     </a>
   
