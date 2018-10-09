@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 对象 | Deklban的博客</title>
+  <title>三道位运算的题目 | Deklban的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="每天都打满鸡血">
-<meta name="keywords" content="电气，小白，编程">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Deklban的博客">
-<meta property="og:url" content="http://yoursite.com/tags/对象/index.html">
+  <meta name="description" content="Tips 某位置零：n &amp;amp;~ (1&amp;lt;&amp;lt;i); 某位置一：n |= (1&amp;lt;&amp;lt;i): 判断某位1还是0：(n&amp;gt;&amp;gt;i)&amp;amp;0x1 与1异或可以实现取反">
+<meta name="keywords" content="C++,位运算">
+<meta property="og:type" content="article">
+<meta property="og:title" content="三道位运算的题目">
+<meta property="og:url" content="http://yoursite.com/2018/10/09/三道位运算的题目/index.html">
 <meta property="og:site_name" content="Deklban的博客">
-<meta property="og:description" content="每天都打满鸡血">
+<meta property="og:description" content="Tips 某位置零：n &amp;amp;~ (1&amp;lt;&amp;lt;i); 某位置一：n |= (1&amp;lt;&amp;lt;i): 判断某位1还是0：(n&amp;gt;&amp;gt;i)&amp;amp;0x1 与1异或可以实现取反">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-09T12:41:10.830Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Deklban的博客">
-<meta name="twitter:description" content="每天都打满鸡血">
+<meta name="twitter:title" content="三道位运算的题目">
+<meta name="twitter:description" content="Tips 某位置零：n &amp;amp;~ (1&amp;lt;&amp;lt;i); 某位置一：n |= (1&amp;lt;&amp;lt;i): 判断某位1还是0：(n&amp;gt;&amp;gt;i)&amp;amp;0x1 与1异或可以实现取反">
   
     <link rel="alternative" href="/atom.xml" title="Deklban的博客" type="application/atom+xml">
   
@@ -158,64 +159,169 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-三道位运算的题目" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/26/魔兽世界之一：备战/" class="archive-article-date">
-  	<time datetime="2018-09-26T04:53:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-26</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/26/魔兽世界之一：备战/">魔兽世界之一：备战</a>
+    <h1 class="article-title" itemprop="name">
+      三道位运算的题目
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/10/09/三道位运算的题目/" class="archive-article-date">
+  	<time datetime="2018-10-09T12:11:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h4><ul>
+<li>某位置零：<code>n &amp;~ (1&lt;&lt;i);</code></li>
+<li>某位置一：<code>n |= (1&lt;&lt;i):</code></li>
+<li>判断某位1还是0：<code>(n&gt;&gt;i)&amp;0x1</code></li>
+<li>与1异或可以实现取反</li>
+</ul>
+<a id="more"></a>
+<h4 id="编程填空：第i位替换"><a href="#编程填空：第i位替换" class="headerlink" title="编程填空：第i位替换"></a>编程填空：第i位替换</h4><p>总时间限制: 1000ms 内存限制: 1024kB<br>描述<br>写出函数中缺失的部分，使得函数返回值为一个整数,该整数的第i位和m的第i位相同，其他位和n相同。</p>
+<p>请使用【一行代码】补全bitManipulation1函数使得程序能达到上述的功能</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bitManipulation1</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> m, <span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line"><span class="comment">// 在此处补充你的代码</span></span><br><span class="line"><span class="keyword">return</span> (m&gt;&gt;i)&amp;<span class="number">0x1</span> ? </span><br><span class="line">		n |= (<span class="number">1</span>&lt;&lt;i): <span class="comment">//用或置一</span></span><br><span class="line">		n &amp;~ (<span class="number">1</span>&lt;&lt;i); <span class="comment">//置零 </span></span><br><span class="line"><span class="comment">//结束</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n, m, i, t;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--) &#123; </span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m &gt;&gt; i;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; bitManipulation1(n, m, i) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输入<br>第一行是整数 t，表示测试组数。<br>每组测试数据包含一行，是三个整数 n, m 和 i (0&lt;=i&lt;=31)<br>输出<br>对每组输入数据，每行输出整型变量n变化后的结果<br>样例输入<br>1<br>1 2 1<br>样例输出<br>3</p>
+<p>代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bitManipulation1</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> m, <span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line"><span class="comment">// 在此处补充你的代码</span></span><br><span class="line"><span class="keyword">return</span> (m&gt;&gt;i)&amp;<span class="number">0x1</span> ? </span><br><span class="line">		n |= (<span class="number">1</span>&lt;&lt;i): <span class="comment">//用或置一</span></span><br><span class="line">		n &amp;~ (<span class="number">1</span>&lt;&lt;i); <span class="comment">//置零 </span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n, m, i, t;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--) &#123; </span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m &gt;&gt; i;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; bitManipulation1(n, m, i) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="编程填空：第i位取反"><a href="#编程填空：第i位取反" class="headerlink" title="编程填空：第i位取反"></a>编程填空：第i位取反</h4><p>总时间限制: 1000ms 内存限制: 1024kB<br>描述<br>写出函数中缺失的部分，使得函数返回值为一个整数,该整数的第i位是n的第i位取反，其余位和n相同</p>
+<p>请使用【一行代码】补全bitManipulation2函数使得程序能达到上述的功能</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bitManipulation2</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line"><span class="comment">// 在此处补充你的代码</span></span><br><span class="line"><span class="keyword">return</span> (n&gt;&gt;i)&amp;<span class="number">0x1</span> ? n &amp;~(<span class="number">1</span>&lt;&lt;i) : n |=(<span class="number">1</span>&lt;&lt;i);</span><br><span class="line"><span class="comment">//结束</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> t, n, i;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--) &#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; i;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; bitManipulation2(n, i) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输入<br>第一行是整数 t，表示测试组数。<br>每组测试数据包含一行，是两个整数 n 和 i (0&lt;=i&lt;=31)。<br>输出<br>输出整型变量n中的第i位取反的结果<br>样例输入<br>1<br>1 0<br>样例输出<br>0<br>提示<br>二进制的最右边是第0位</p>
+<h4 id="编程填空：左边i位取反"><a href="#编程填空：左边i位取反" class="headerlink" title="编程填空：左边i位取反"></a>编程填空：左边i位取反</h4><p>总时间限制: 1000ms 内存限制: 1024kB<br>描述<br>写出函数中缺失的部分，使得函数返回值为一个整数,该整数的左边i位是n的左边i位取反，其余位和n相同<br>请使用【一行代码】补全bitManipulation3函数使得程序能达到上述的功能</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bitManipulation3</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line"><span class="comment">// 在此处补充你的代码</span></span><br><span class="line"><span class="keyword">return</span> n ^ (<span class="number">0xffffffff</span> &lt;&lt; (<span class="number">32</span>-i));</span><br><span class="line"><span class="comment">//将n和一个左边i位是1，右边剩下的是0的数异或即可。</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> t, n, i;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--) &#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; i;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; bitManipulation3(n, i) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输入<br>第一行是整数 t，表示测试组数。<br>每组测试数据包含一行，是两个整数 n 和 i (1&lt;=i&lt;=32)。<br>输出<br>对每组输入数据，输出整型变量n中左边i位取反的结果。<br>样例输入<br>1<br>0 32<br>样例输出<br>-1<br>提示<br>注意i从1开始</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c++</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">对象</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">位运算</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/10/09/三道位运算的题目/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/09/28/七进制与九进制/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">七进制与九进制</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -238,9 +344,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
@@ -329,11 +435,23 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">位运算</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">输出格式</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -342,14 +460,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">语法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">输出格式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -365,15 +475,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">面向对象</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">引用</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">类和对象</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">对象</a>
               </li>
             
             <div class="clearfix"></div>
