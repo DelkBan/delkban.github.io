@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>七进制与九进制 | Deklban的博客</title>
+  <title>快速排序 | Deklban的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="特殊自然数一个十进制自然数,它的七进制与九进制表示都是三位数，且七进制与九进制的三位数码表示顺序正好相反。编程求此自然数,并输出显示。">
-<meta name="keywords" content="算法,C++">
+  <meta name="description" content="Tips: 对于不知道大小的数组a[]，可以用下列语句获得长度： int size =  sizeof(a)/sizeof(int);">
+<meta name="keywords" content="算法,C++,排序">
 <meta property="og:type" content="article">
-<meta property="og:title" content="七进制与九进制">
-<meta property="og:url" content="http://yoursite.com/2018/09/28/七进制与九进制/index.html">
+<meta property="og:title" content="快速排序">
+<meta property="og:url" content="http://yoursite.com/2018/10/10/快速排序/index.html">
 <meta property="og:site_name" content="Deklban的博客">
-<meta property="og:description" content="特殊自然数一个十进制自然数,它的七进制与九进制表示都是三位数，且七进制与九进制的三位数码表示顺序正好相反。编程求此自然数,并输出显示。">
+<meta property="og:description" content="Tips: 对于不知道大小的数组a[]，可以用下列语句获得长度： int size =  sizeof(a)/sizeof(int);">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-28T12:26:49.379Z">
+<meta property="og:updated_time" content="2018-10-10T10:39:07.546Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="七进制与九进制">
-<meta name="twitter:description" content="特殊自然数一个十进制自然数,它的七进制与九进制表示都是三位数，且七进制与九进制的三位数码表示顺序正好相反。编程求此自然数,并输出显示。">
+<meta name="twitter:title" content="快速排序">
+<meta name="twitter:description" content="Tips: 对于不知道大小的数组a[]，可以用下列语句获得长度： int size =  sizeof(a)/sizeof(int);">
   
     <link rel="alternative" href="/atom.xml" title="Deklban的博客" type="application/atom+xml">
   
@@ -159,41 +159,45 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-七进制与九进制" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-快速排序" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      七进制与九进制
+      快速排序
     </h1>
   
 
         
-        <a href="/2018/09/28/七进制与九进制/" class="archive-article-date">
-  	<time datetime="2018-09-28T10:28:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-28</time>
+        <a href="/2018/10/10/快速排序/" class="archive-article-date">
+  	<time datetime="2018-10-10T10:14:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-10</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h5 id="特殊自然数"><a href="#特殊自然数" class="headerlink" title="特殊自然数"></a>特殊自然数</h5><p>一个十进制自然数,它的七进制与九进制表示都是三位数，且七进制与九进制的三位数码表示顺序正好相反。编程求此自然数,并输出显示。</p>
+        <p><strong>Tips:</strong></p>
+<p>对于不知道大小的数组a[]，可以用下列语句获得长度：</p>
+<p><code>int size =  sizeof(a)/sizeof(int);</code></p>
 <a id="more"></a>
-<h5 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h5><p>无。</p>
-<h5 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h5><p>三行：<br>第一行是此自然数的十进制表示；<br>第一行是此自然数的七进制表示；<br>第一行是此自然数的九进制表示。</p>
-<h5 id="样例输入、输出"><a href="#样例输入、输出" class="headerlink" title="样例输入、输出"></a>样例输入、输出</h5><p>无</p>
-<h5 id="first-try"><a href="#first-try" class="headerlink" title="first try"></a>first try</h5><p>拿到这个问题，我考虑的角度是递增七进制数，测试其是否满足条件，代码如下。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 求特殊自然数</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> A,B,C;<span class="comment">//代表三个位数</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">seperate</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> &amp;a,<span class="keyword">int</span>&amp; b,<span class="keyword">int</span>&amp; c)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	a = n/<span class="number">100</span>;</span><br><span class="line">	c = n%<span class="number">10</span>;</span><br><span class="line">	b = n/<span class="number">10</span> %<span class="number">10</span>;</span><br><span class="line">  &#125;  </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span> &amp;ten,<span class="keyword">int</span> &amp;seven,<span class="keyword">int</span> &amp;nine)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	seperate(seven,A,B,C);</span><br><span class="line">	<span class="keyword">if</span>(A*<span class="number">49</span>+B*<span class="number">7</span>+C ==C*<span class="number">81</span>+B*<span class="number">9</span>+A)  <span class="comment">//找到了</span></span><br><span class="line">		 &#123;</span><br><span class="line">		 	ten = A*<span class="number">49</span>+B*<span class="number">7</span>+C;</span><br><span class="line">		 	nine = C*<span class="number">100</span>+B*<span class="number">10</span>+A;</span><br><span class="line">		 	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">		 &#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> ten,sev=<span class="number">100</span>,nin;</span><br><span class="line">	<span class="keyword">while</span>(sev&lt;<span class="number">1000</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(change(ten,sev,nin))</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;ten&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;sev&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;nin&lt;&lt;<span class="built_in">endl</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">			<span class="comment">//break;</span></span><br><span class="line">		&#125;</span><br><span class="line">		sev++;</span><br><span class="line">		ten = <span class="number">0</span>;</span><br><span class="line">		nin = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>其输出有三组，具体如下：</p>
-<p>155<br>281<br>182</p>
-<p>248<br>503<br>305</p>
-<p>403<br>784<br>487</p>
-<p>正确的答案应该是只有中间一组，错误的原因在于七进制不可能有8出现。</p>
-<h5 id="second-try"><a href="#second-try" class="headerlink" title="second try"></a>second try</h5><p>基于上面的分析，改正后的代码类似下面这样（参考自网络)</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">65</span>; i &lt;= <span class="number">342</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> ((i % <span class="number">9</span> == i / <span class="number">49</span>) &amp;&amp;</span><br><span class="line">            (i / <span class="number">9</span> % <span class="number">9</span> == i / <span class="number">7</span> % <span class="number">7</span>) &amp;&amp;</span><br><span class="line">            (i / <span class="number">81</span> == i % <span class="number">7</span>)) &#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; i / <span class="number">49</span> &lt;&lt; i / <span class="number">7</span> % <span class="number">7</span> &lt;&lt; i % <span class="number">7</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; i / <span class="number">81</span> &lt;&lt; i / <span class="number">9</span> % <span class="number">9</span> &lt;&lt; i % <span class="number">9</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>能够实现目标，并且复杂度也不高。</p>
+<h5 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h5><p>排序可以按照以下顺序完成：</p>
+<ol>
+<li>设k=a[0],将k挪到适当位置，使得比k小的元素都在k左边，比k大的元素都在k右边，和k相等的在左右都可以。(O(n)时间完成)</li>
+<li>把k左边的部分快速排序</li>
+<li>把k右边的部分快速排序</li>
+</ol>
+<p>下面对第一步进行详细说明：</p>
+<p>假设起始标号（最左侧）为i，结束标号为j。则在i和j不相等的时候进行循环，</p>
+<p>经过偶数次交换（包括零次）时比较k与a[j]，如果k小于等于a[j]，则不用动，–j继续判断</p>
+<p>若k比a[j]大，说明k需要交换，则交换a[i]与a[j]，交换前k在a[i]的位置，整个过程中k一定在a[i]或a[j]中</p>
+<p>经过奇数次交换，比较k与a[i]，k比a[i]大，则不动，++i继续判断，反之交换。</p>
+<p>最终i和j会相等，k的位置确定，然后使用递归计算左右两侧的。</p>
+<p>一般情况下，复杂度为O(nlogn)</p>
+<p>最糟糕的情况下，复杂度为O(n<sup>2</sup>)</p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//快速排序</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> &amp;a,<span class="keyword">int</span> &amp;b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> temp=a;</span><br><span class="line">	a = b;</span><br><span class="line">	b = temp;</span><br><span class="line"> &#125; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">QuickSort</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> s,<span class="keyword">int</span> e)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>( s &gt;= e)</span><br><span class="line">		<span class="keyword">return</span>;<span class="comment">//如果起始位置不比终止位置小，说明不用排序</span></span><br><span class="line">	<span class="keyword">int</span> k = a[s]; <span class="comment">//将k定在最左侧</span></span><br><span class="line">	<span class="keyword">int</span> i = s,j = e;</span><br><span class="line">	<span class="keyword">while</span>( i != j)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">while</span>( j &gt; i &amp;&amp; a[j]&gt;=k)</span><br><span class="line">			--j;</span><br><span class="line">		swap(a[i],a[j]); <span class="comment">//起初k在a[i]中，交换后去a[j]中</span></span><br><span class="line">		<span class="keyword">while</span>( i &lt; j &amp;&amp; a[i]&lt;=k)</span><br><span class="line">			++i;</span><br><span class="line">		swap(a[i],a[j]); </span><br><span class="line">	 &#125; <span class="comment">//处理完后，a[i]=a[j]=k</span></span><br><span class="line">	 QuickSort(a,s,i<span class="number">-1</span>);</span><br><span class="line">	 QuickSort(a,i+<span class="number">1</span>,e); </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> a[] = &#123; <span class="number">99</span>,<span class="number">28</span>,<span class="number">29</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">11</span>,<span class="number">2</span>,<span class="number">8</span>,<span class="number">29</span>,<span class="number">89</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> size = <span class="keyword">sizeof</span>(a)/<span class="keyword">sizeof</span>(<span class="keyword">int</span>);</span><br><span class="line">	QuickSort(a,<span class="number">0</span>,size<span class="number">-1</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;size;++i)</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; a[i] &lt;&lt; <span class="string">","</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -212,6 +216,10 @@
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">排序</a>
         		</li>
       		
 		</ul>
@@ -267,7 +275,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/28/七进制与九进制/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/10/10/快速排序/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -281,18 +289,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/10/09/三道位运算的题目/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          三道位运算的题目
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/09/27/用递归将问题分解成规模更小的子问题/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">用递归将问题分解成规模更小的子问题</div>
+    <a href="/2018/10/09/三道位运算的题目/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">三道位运算的题目</div>
       <i class="icon-circle-right"></i>
     </a>
   

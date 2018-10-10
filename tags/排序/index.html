@@ -6,20 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>七进制与九进制 | Deklban的博客</title>
+  <title>Tag: 排序 | Deklban的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="特殊自然数一个十进制自然数,它的七进制与九进制表示都是三位数，且七进制与九进制的三位数码表示顺序正好相反。编程求此自然数,并输出显示。">
-<meta name="keywords" content="算法,C++">
-<meta property="og:type" content="article">
-<meta property="og:title" content="七进制与九进制">
-<meta property="og:url" content="http://yoursite.com/2018/09/28/七进制与九进制/index.html">
+  <meta name="description" content="每天都打满鸡血">
+<meta name="keywords" content="电气，小白，编程">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Deklban的博客">
+<meta property="og:url" content="http://yoursite.com/tags/排序/index.html">
 <meta property="og:site_name" content="Deklban的博客">
-<meta property="og:description" content="特殊自然数一个十进制自然数,它的七进制与九进制表示都是三位数，且七进制与九进制的三位数码表示顺序正好相反。编程求此自然数,并输出显示。">
+<meta property="og:description" content="每天都打满鸡血">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-28T12:26:49.379Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="七进制与九进制">
-<meta name="twitter:description" content="特殊自然数一个十进制自然数,它的七进制与九进制表示都是三位数，且七进制与九进制的三位数码表示顺序正好相反。编程求此自然数,并输出显示。">
+<meta name="twitter:title" content="Deklban的博客">
+<meta name="twitter:description" content="每天都打满鸡血">
   
     <link rel="alternative" href="/atom.xml" title="Deklban的博客" type="application/atom+xml">
   
@@ -159,49 +158,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-七进制与九进制" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      七进制与九进制
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/10/10/快速排序/" class="archive-article-date">
+  	<time datetime="2018-10-10T10:14:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-10</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/10/10/快速排序/">快速排序</a>
     </h1>
   
 
-        
-        <a href="/2018/09/28/七进制与九进制/" class="archive-article-date">
-  	<time datetime="2018-09-28T10:28:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h5 id="特殊自然数"><a href="#特殊自然数" class="headerlink" title="特殊自然数"></a>特殊自然数</h5><p>一个十进制自然数,它的七进制与九进制表示都是三位数，且七进制与九进制的三位数码表示顺序正好相反。编程求此自然数,并输出显示。</p>
-<a id="more"></a>
-<h5 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h5><p>无。</p>
-<h5 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h5><p>三行：<br>第一行是此自然数的十进制表示；<br>第一行是此自然数的七进制表示；<br>第一行是此自然数的九进制表示。</p>
-<h5 id="样例输入、输出"><a href="#样例输入、输出" class="headerlink" title="样例输入、输出"></a>样例输入、输出</h5><p>无</p>
-<h5 id="first-try"><a href="#first-try" class="headerlink" title="first try"></a>first try</h5><p>拿到这个问题，我考虑的角度是递增七进制数，测试其是否满足条件，代码如下。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 求特殊自然数</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> A,B,C;<span class="comment">//代表三个位数</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">seperate</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> &amp;a,<span class="keyword">int</span>&amp; b,<span class="keyword">int</span>&amp; c)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	a = n/<span class="number">100</span>;</span><br><span class="line">	c = n%<span class="number">10</span>;</span><br><span class="line">	b = n/<span class="number">10</span> %<span class="number">10</span>;</span><br><span class="line">  &#125;  </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span> &amp;ten,<span class="keyword">int</span> &amp;seven,<span class="keyword">int</span> &amp;nine)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	seperate(seven,A,B,C);</span><br><span class="line">	<span class="keyword">if</span>(A*<span class="number">49</span>+B*<span class="number">7</span>+C ==C*<span class="number">81</span>+B*<span class="number">9</span>+A)  <span class="comment">//找到了</span></span><br><span class="line">		 &#123;</span><br><span class="line">		 	ten = A*<span class="number">49</span>+B*<span class="number">7</span>+C;</span><br><span class="line">		 	nine = C*<span class="number">100</span>+B*<span class="number">10</span>+A;</span><br><span class="line">		 	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">		 &#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> ten,sev=<span class="number">100</span>,nin;</span><br><span class="line">	<span class="keyword">while</span>(sev&lt;<span class="number">1000</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(change(ten,sev,nin))</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;ten&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;sev&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;nin&lt;&lt;<span class="built_in">endl</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">			<span class="comment">//break;</span></span><br><span class="line">		&#125;</span><br><span class="line">		sev++;</span><br><span class="line">		ten = <span class="number">0</span>;</span><br><span class="line">		nin = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>其输出有三组，具体如下：</p>
-<p>155<br>281<br>182</p>
-<p>248<br>503<br>305</p>
-<p>403<br>784<br>487</p>
-<p>正确的答案应该是只有中间一组，错误的原因在于七进制不可能有8出现。</p>
-<h5 id="second-try"><a href="#second-try" class="headerlink" title="second try"></a>second try</h5><p>基于上面的分析，改正后的代码类似下面这样（参考自网络)</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">65</span>; i &lt;= <span class="number">342</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> ((i % <span class="number">9</span> == i / <span class="number">49</span>) &amp;&amp;</span><br><span class="line">            (i / <span class="number">9</span> % <span class="number">9</span> == i / <span class="number">7</span> % <span class="number">7</span>) &amp;&amp;</span><br><span class="line">            (i / <span class="number">81</span> == i % <span class="number">7</span>)) &#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; i / <span class="number">49</span> &lt;&lt; i / <span class="number">7</span> % <span class="number">7</span> &lt;&lt; i % <span class="number">7</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; i / <span class="number">81</span> &lt;&lt; i / <span class="number">9</span> % <span class="number">9</span> &lt;&lt; i % <span class="number">9</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>能够实现目标，并且复杂度也不高。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -213,119 +199,27 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">排序</a>
+        		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/28/七进制与九进制/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/10/09/三道位运算的题目/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          三道位运算的题目
-        
-      </div>
-    </a>
   
   
-    <a href="/2018/09/27/用递归将问题分解成规模更小的子问题/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">用递归将问题分解成规模更小的子问题</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -348,9 +242,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
