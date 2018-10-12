@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 输出格式 | Deklban的博客</title>
+  <title>魔兽世界之二：装备 | Deklban的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="每天都打满鸡血">
-<meta name="keywords" content="电气，小白，编程">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Deklban的博客">
-<meta property="og:url" content="http://yoursite.com/tags/输出格式/index.html">
+  <meta name="description" content="这是魔兽世界的第二个系列，在原来的基础上增加了武器、士气和忠诚度。本次的程序是在郭老师给的第一个系列的代码的基础上进行的功能添加。">
+<meta name="keywords" content="C++,面向对象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="魔兽世界之二：装备">
+<meta property="og:url" content="http://yoursite.com/2018/10/12/魔兽世界之二：装备/index.html">
 <meta property="og:site_name" content="Deklban的博客">
-<meta property="og:description" content="每天都打满鸡血">
+<meta property="og:description" content="这是魔兽世界的第二个系列，在原来的基础上增加了武器、士气和忠诚度。本次的程序是在郭老师给的第一个系列的代码的基础上进行的功能添加。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-12T13:16:09.132Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Deklban的博客">
-<meta name="twitter:description" content="每天都打满鸡血">
+<meta name="twitter:title" content="魔兽世界之二：装备">
+<meta name="twitter:description" content="这是魔兽世界的第二个系列，在原来的基础上增加了武器、士气和忠诚度。本次的程序是在郭老师给的第一个系列的代码的基础上进行的功能添加。">
   
     <link rel="alternative" href="/atom.xml" title="Deklban的博客" type="application/atom+xml">
   
@@ -158,36 +159,76 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-魔兽世界之二：装备" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/25/setfill和setw方法/" class="archive-article-date">
-  	<time datetime="2018-09-25T11:54:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-25</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/25/setfill和setw方法/">填充：setfill和setw方法</a>
+    <h1 class="article-title" itemprop="name">
+      魔兽世界之二：装备
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/10/12/魔兽世界之二：装备/" class="archive-article-date">
+  	<time datetime="2018-10-12T13:03:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这是魔兽世界的第二个系列，在原来的基础上增加了武器、士气和忠诚度。本次的程序是在郭老师给的第一个系列的代码的基础上进行的功能添加。</p>
+<a id="more"></a>
+<h5 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h5><p>魔兽世界的西面是红魔军的司令部，东面是蓝魔军的司令部。两个司令部之间是依次排列的若干城市。 </p>
+<p>红司令部，City 1，City 2，……，City n，蓝司令部</p>
+<p>两军的司令部都会制造武士。武士一共有 dragon 、ninja、iceman、lion、wolf 五种。每种武士都有编号、生命值这两种属性。<br>有的武士可以拥有武器。武器有三种，sword, bomb,和arrow，编号分别为0,1,2。<br>双方的武士编号都是从1开始计算。红方制造出来的第 n 个武士，编号就是n。同样，蓝方制造出来的第 n 个武士，编号也是n。 </p>
+<p>不同的武士有不同的特点。<br>dragon 可以拥有一件武器。编号为n的dragon降生时即获得编号为 n%3 的武器。dragon还有“士气”这个属性，是个浮点数，其值为它降生后其司令部剩余生命元的数量除以造dragon所需的生命元数量。<br>ninja可以拥有两件武器。编号为n的ninja降生时即获得编号为 n%3 和 (n+1)%3的武器。<br>iceman有一件武器。编号为n的iceman降生时即获得编号为 n%3 的武器。<br>lion 有“忠诚度”这个属性，其值等于它降生后其司令部剩余生命元的数目。<br>wolf没特点。<br>请注意，在以后的题目里，武士的士气，生命值，忠诚度在其生存期间都可能发生变化，都有作用，武士手中的武器随着使用攻击力也会发生变化。</p>
+<p>武士在刚降生的时候有一个生命值。 </p>
+<p>在每个整点，双方的司令部中各有一个武士降生。 </p>
+<p>红方司令部按照 iceman、lion、wolf、ninja、dragon 的顺序循环制造武士。 </p>
+<p>蓝方司令部按照 lion、dragon、ninja、iceman、wolf 的顺序循环制造武士。 </p>
+<p>制造武士需要生命元。 </p>
+<p>制造一个初始生命值为 m 的武士，司令部中的生命元就要减少 m 个。 </p>
+<p>如果司令部中的生命元不足以制造某个按顺序应该制造的武士，那么司令部就试图制造下一个。如果所有武士都不能制造了，则司令部停止制造武士。<br>给定一个时间，和双方司令部的初始生命元数目，要求你将从0点0分开始到双方司令部停止制造武士为止的所有事件按顺序输出。<br>一共有两种事件，其对应的输出样例如下： </p>
+<p>1) 武士降生<br>输出样例： 004 blue lion 5 born with strength 5,2 lion in red headquarter<br>表示在 4点整，编号为5的蓝魔lion武士降生，它降生时生命值为5,降生后蓝魔司令部里共有2个lion武士。(为简单起见，不考虑单词的复数形式)注意，每制造出一个新的武士，都要输出此时司令部里共有多少个该种武士。<br>如果造出的是dragon，那么还要输出一行，例：<br>It has a arrow,and it’s morale is 23.34<br>表示该dragon降生时得到了arrow,其士气是23.34（为简单起见，本题中arrow前面的冠词用a,不用an，士气精确到小数点后面2位，四舍五入）<br>如果造出的是ninja，那么还要输出一行，例：<br>It has a bomb and a arrow<br>表示该ninja降生时得到了bomb和arrow。<br>如果造出的是iceman，那么还要输出一行，例：<br>It has a sword<br>表示该iceman降生时得到了sword。<br>如果造出的是lion，那么还要输出一行，例：<br>It’s loyalty is 24<br>表示该lion降生时的忠诚度是24。<br>2) 司令部停止制造武士<br>输出样例： 010 red headquarter stops making warriors<br>表示在 10点整，红方司令部停止制造武士</p>
+<p>输出事件时： </p>
+<p>首先按时间顺序输出； </p>
+<p>同一时间发生的事件，先输出红司令部的，再输出蓝司令部的。</p>
+<h5 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h5><p>第一行是一个整数,代表测试数据组数。</p>
+<p>每组测试数据共两行。 </p>
+<p>第一行，一个整数M。其含义为： 每个司令部一开始都有M个生命元( 1 &lt;= M &lt;= 10000) </p>
+<p>第二行：五个整数，依次是 dragon 、ninja、iceman、lion、wolf 的初始生命值。它们都大于0小于等于10000</p>
+<h5 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h5><p>对每组测试数据，要求输出从0时0分开始，到双方司令部都停止制造武士为止的所有事件。<br>对每组测试数据，首先输出“Case:n” n是测试数据的编号，从1开始<br>接下来按恰当的顺序和格式输出所有事件。每个事件都以事件发生的时间开头，时间以小时为单位，有三位。</p>
+<h5 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h5><pre><code>1
+20
+3 4 5 6 7
+</code></pre><h5 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h5><pre><code>Case:1
+000 red iceman 1 born with strength 5,1 iceman in red headquarter
+It has a bomb
+000 blue lion 1 born with strength 6,1 lion in blue headquarter
+It&apos;s loyalty is 14
+001 red lion 2 born with strength 6,1 lion in red headquarter
+It&apos;s loyalty is 9
+001 blue dragon 2 born with strength 3,1 dragon in blue headquarter
+It has a arrow,and it&apos;s morale is 3.67
+002 red wolf 3 born with strength 7,1 wolf in red headquarter
+002 blue ninja 3 born with strength 4,1 ninja in blue headquarter
+It has a sword and a bomb
+003 red headquarter stops making warriors
+003 blue iceman 4 born with strength 5,1 iceman in blue headquarter
+It has a bomb
+004 blue headquarter stops making warriors
+</code></pre><h5 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h5><p>本次代码是在郭老师的代码基础上修改的，为了后续的扩展，其实比较好的方案是将不同种类的兵种都写成以warrior为基类的派生。但是我这里没有这样做，而是直接在原来大类的基础上添加了函数，这样虽然也能AC，但是会导致武器、士气等属性将无法动态浮动，下次的代码将会进行修正。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//魔兽世界之二：装备</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> WARRIOR_NUM 5</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> WEAPON_NUM 3</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">char * CWarrior::names[WARRIOR_NUM] = &#123; "dragon","ninja","iceman","lion","wolf" &#125;;</span></span><br><span class="line"><span class="comment">红方司令部按照 iceman、lion、wolf、ninja、dragon 的顺序制造武士。</span></span><br><span class="line"><span class="comment">蓝方司令部按照 lion、dragon、ninja、iceman、wolf 的顺序制造武士。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CHeadquarter</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CWarrior</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">		CHeadquarter * pHeadquarter;</span><br><span class="line">		<span class="keyword">int</span> kindNo; <span class="comment">//武士的种类编号 0 dragon 1 ninja 2 iceman 3 lion 4 wolf</span></span><br><span class="line">		<span class="keyword">int</span> nNo;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		<span class="keyword">static</span> <span class="keyword">char</span> * names[WARRIOR_NUM];</span><br><span class="line">		<span class="keyword">static</span> <span class="keyword">char</span> * weapons[WEAPON_NUM];<span class="comment">//三种武器定义在士兵类中 </span></span><br><span class="line">		<span class="keyword">static</span> <span class="keyword">int</span> InitialLifeValue [WARRIOR_NUM];</span><br><span class="line">		CWarrior( CHeadquarter * p,<span class="keyword">int</span> nNo_,<span class="keyword">int</span> kindNo_ );</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">PrintResult</span><span class="params">(<span class="keyword">int</span> nTime)</span></span>;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">WeponAndChar</span><span class="params">(<span class="keyword">int</span> kindNo_,<span class="keyword">int</span> nNo_,<span class="keyword">int</span> totalLifeValue_)</span></span>; <span class="comment">//输出特殊语句 </span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CHeadquarter</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">		<span class="keyword">int</span> totalLifeValue;</span><br><span class="line">		<span class="keyword">bool</span> bStopped;</span><br><span class="line">		<span class="keyword">int</span> totalWarriorNum;</span><br><span class="line">		<span class="keyword">int</span> color;</span><br><span class="line">		<span class="keyword">int</span> curMakingSeqIdx; <span class="comment">//当前要制造的武士是制造序列中的第几个</span></span><br><span class="line">		<span class="keyword">int</span> warriorNum[WARRIOR_NUM]; <span class="comment">//存放每种武士的数量</span></span><br><span class="line">		CWarrior * pWarriors[<span class="number">1000</span>];</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		<span class="keyword">friend</span> <span class="class"><span class="keyword">class</span> <span class="title">CWarrior</span>;</span></span><br><span class="line">		<span class="keyword">static</span> <span class="keyword">int</span> makingSeq[<span class="number">2</span>][WARRIOR_NUM]; <span class="comment">//武士的制作顺序序列</span></span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">Init</span><span class="params">(<span class="keyword">int</span> color_, <span class="keyword">int</span> lv)</span></span>;</span><br><span class="line">		~CHeadquarter () ;</span><br><span class="line">		<span class="function"><span class="keyword">int</span> <span class="title">Produce</span><span class="params">(<span class="keyword">int</span> nTime)</span></span>;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">GetColor</span><span class="params">( <span class="keyword">char</span> * szColor)</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line">CWarrior::CWarrior( CHeadquarter * p,<span class="keyword">int</span> nNo_,<span class="keyword">int</span></span><br><span class="line">kindNo_ ):nNo(nNo_),kindNo(kindNo_),pHeadquarter(p) &#123; &#125;</span><br><span class="line"><span class="keyword">void</span> CWarrior::PrintResult(<span class="keyword">int</span> nTime)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">char</span> szColor[<span class="number">20</span>];</span><br><span class="line">	pHeadquarter-&gt;GetColor(szColor);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%03d %s %s %d born with strength %d,%d %s in %s headquarter\n"</span>,</span><br><span class="line">		nTime, szColor, names[kindNo], nNo, InitialLifeValue[kindNo],</span><br><span class="line">		pHeadquarter-&gt;warriorNum[kindNo],names[kindNo],szColor);</span><br><span class="line">	WeponAndChar(kindNo,nNo,pHeadquarter-&gt;totalLifeValue); <span class="comment">//种类编号， 数量编号n, 剩余生命元 </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">void</span> CWarrior::WeponAndChar(<span class="keyword">int</span> kindNo_,<span class="keyword">int</span> nNo_,<span class="keyword">int</span> totalLifeValue_)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">switch</span> (kindNo_)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">float</span> grade;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">0</span>: <span class="comment">//dragon</span></span><br><span class="line">			 grade = (<span class="keyword">float</span>)totalLifeValue_ /  InitialLifeValue[kindNo_]; <span class="comment">//计算士气</span></span><br><span class="line">			 <span class="built_in">printf</span>(<span class="string">"It has a %s,and it's morale is %.2f\n"</span>,weapons[nNo_%<span class="number">3</span>],grade);</span><br><span class="line">			 <span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">1</span>: <span class="comment">//ninja</span></span><br><span class="line">			 <span class="built_in">printf</span>(<span class="string">"It has a %s and a %s\n"</span>,weapons[nNo_%<span class="number">3</span>],weapons[(nNo_+<span class="number">1</span>)%<span class="number">3</span>]);</span><br><span class="line">			 <span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">2</span>: <span class="comment">//iceman</span></span><br><span class="line">			 <span class="built_in">printf</span>(<span class="string">"It has a %s\n"</span>,weapons[nNo_%<span class="number">3</span>]);</span><br><span class="line">			 <span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">3</span>: <span class="comment">//lion</span></span><br><span class="line">			 <span class="keyword">int</span> loyal = totalLifeValue_;</span><br><span class="line">			 <span class="built_in">printf</span>(<span class="string">"It's loyalty is %d\n"</span>,loyal);</span><br><span class="line">			 <span class="keyword">break</span>;	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//司令部初始化函数，color表示颜色，红0蓝1，lv表示总生命值。 </span></span><br><span class="line"><span class="keyword">void</span> CHeadquarter::Init(<span class="keyword">int</span> color_, <span class="keyword">int</span> lv)</span><br><span class="line">&#123;</span><br><span class="line">	color = color_;</span><br><span class="line">	totalLifeValue = lv;</span><br><span class="line">	totalWarriorNum = <span class="number">0</span>;</span><br><span class="line">	bStopped = <span class="literal">false</span>;</span><br><span class="line">	curMakingSeqIdx = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span>;i &lt; WARRIOR_NUM;i ++ )</span><br><span class="line">		warriorNum[i] = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">CHeadquarter::~CHeadquarter () &#123;</span><br><span class="line">	<span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span>;i &lt; totalWarriorNum;i ++ )</span><br><span class="line">		<span class="keyword">delete</span> pWarriors[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> CHeadquarter::Produce(<span class="keyword">int</span> nTime)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>( bStopped )</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> nSearchingTimes = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>( CWarrior::InitialLifeValue[makingSeq[color][curMakingSeqIdx]] &gt;</span><br><span class="line">	totalLifeValue &amp;&amp; nSearchingTimes &lt; WARRIOR_NUM ) <span class="comment">//生命值不够生产并且尝试次数少于五次时循环，目的是找到下一个能生产的对象 </span></span><br><span class="line">	&#123;</span><br><span class="line">		curMakingSeqIdx = ( curMakingSeqIdx + <span class="number">1</span> ) % WARRIOR_NUM ; </span><br><span class="line">		nSearchingTimes ++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> kindNo = makingSeq[color][curMakingSeqIdx];</span><br><span class="line">	<span class="keyword">if</span>( CWarrior::InitialLifeValue[kindNo] &gt; totalLifeValue ) &#123; <span class="comment">//当前制造兵种所需声明大于总生命，无法制造 </span></span><br><span class="line">		bStopped = <span class="literal">true</span>;</span><br><span class="line">		<span class="keyword">if</span>( color == <span class="number">0</span>)</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%03d red headquarter stops making warriors\n"</span>,nTime);</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%03d blue headquarter stops making warriors\n"</span>,nTime);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>; <span class="comment">//不能制造要及时跳出 </span></span><br><span class="line">	&#125;</span><br><span class="line">	totalLifeValue -= CWarrior::InitialLifeValue[kindNo]; <span class="comment">//扣除生命值 </span></span><br><span class="line">	curMakingSeqIdx = ( curMakingSeqIdx + <span class="number">1</span> ) % WARRIOR_NUM ;<span class="comment">//制造一个当前序列加一，语句可以保证不溢出 </span></span><br><span class="line">	pWarriors[totalWarriorNum] = <span class="keyword">new</span> CWarrior( <span class="keyword">this</span>,totalWarriorNum+<span class="number">1</span>,kindNo);<span class="comment">//新建实例化一个战士对象 </span></span><br><span class="line">	warriorNum[kindNo]++; <span class="comment">//这种类型的武士数量增加 </span></span><br><span class="line">	pWarriors[totalWarriorNum]-&gt;PrintResult(nTime);</span><br><span class="line">	totalWarriorNum ++;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">void</span> CHeadquarter::GetColor( <span class="keyword">char</span> * szColor)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>( color == <span class="number">0</span>)</span><br><span class="line">		<span class="built_in">strcpy</span>(szColor,<span class="string">"red"</span>);</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">strcpy</span>(szColor,<span class="string">"blue"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">char</span> * CWarrior::names[WARRIOR_NUM] = &#123; <span class="string">"dragon"</span>,<span class="string">"ninja"</span>,<span class="string">"iceman"</span>,<span class="string">"lion"</span>,<span class="string">"wolf"</span> &#125;;</span><br><span class="line"><span class="keyword">int</span> CWarrior::InitialLifeValue [WARRIOR_NUM];</span><br><span class="line"><span class="keyword">int</span> CHeadquarter::makingSeq[<span class="number">2</span>][WARRIOR_NUM] = &#123; &#123; <span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">1</span>,<span class="number">0</span> &#125;,&#123;<span class="number">3</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>&#125; &#125;; <span class="comment">//两个司令部武士的制作顺序序列</span></span><br><span class="line"><span class="keyword">char</span> * CWarrior::weapons[WEAPON_NUM]= &#123; <span class="string">"sword"</span>,<span class="string">"bomb"</span>,<span class="string">"arrow"</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> t;</span><br><span class="line">	<span class="keyword">int</span> m;</span><br><span class="line">	CHeadquarter RedHead,BlueHead;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;t);</span><br><span class="line">	<span class="keyword">int</span> nCaseNo = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> ( t -- ) &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"Case:%d\n"</span>,nCaseNo++);</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;m);</span><br><span class="line">		<span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span>;i &lt; WARRIOR_NUM;i ++ )</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp; CWarrior::InitialLifeValue[i]);</span><br><span class="line">		RedHead.Init(<span class="number">0</span>,m);</span><br><span class="line">		BlueHead.Init(<span class="number">1</span>,m);</span><br><span class="line">		<span class="keyword">int</span> nTime = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">while</span>( <span class="literal">true</span>) &#123;</span><br><span class="line">			<span class="keyword">int</span> tmp1 = RedHead.Produce(nTime);</span><br><span class="line">			<span class="keyword">int</span> tmp2 = BlueHead.Produce(nTime);</span><br><span class="line">			<span class="keyword">if</span>( tmp1 == <span class="number">0</span> &amp;&amp; tmp2 == <span class="number">0</span>)</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			nTime ++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -197,25 +238,112 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">输出格式</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">面向对象</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/10/12/魔兽世界之二：装备/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/10/11/分治排序与求排列逆序数/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">分治排序与求排列逆序数</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -238,9 +366,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
