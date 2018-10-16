@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>七进制与九进制 | Deklban的博客</title>
+  <title>链表--求两个一元多项式的和与乘积 | Deklban的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="特殊自然数一个十进制自然数,它的七进制与九进制表示都是三位数，且七进制与九进制的三位数码表示顺序正好相反。编程求此自然数,并输出显示。">
-<meta name="keywords" content="C++,算法">
+  <meta name="description" content="一个使用链表做的多项式相加相乘的程序，记录于此。">
+<meta name="keywords" content="C,数据结构">
 <meta property="og:type" content="article">
-<meta property="og:title" content="七进制与九进制">
-<meta property="og:url" content="http://yoursite.com/2018/09/28/七进制与九进制/index.html">
+<meta property="og:title" content="链表--求两个一元多项式的和与乘积">
+<meta property="og:url" content="http://yoursite.com/2018/10/16/链表-求两个一元多项式的和与乘积/index.html">
 <meta property="og:site_name" content="Deklban的博客">
-<meta property="og:description" content="特殊自然数一个十进制自然数,它的七进制与九进制表示都是三位数，且七进制与九进制的三位数码表示顺序正好相反。编程求此自然数,并输出显示。">
+<meta property="og:description" content="一个使用链表做的多项式相加相乘的程序，记录于此。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-28T12:26:49.379Z">
+<meta property="og:updated_time" content="2018-10-16T02:48:58.132Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="七进制与九进制">
-<meta name="twitter:description" content="特殊自然数一个十进制自然数,它的七进制与九进制表示都是三位数，且七进制与九进制的三位数码表示顺序正好相反。编程求此自然数,并输出显示。">
+<meta name="twitter:title" content="链表--求两个一元多项式的和与乘积">
+<meta name="twitter:description" content="一个使用链表做的多项式相加相乘的程序，记录于此。">
   
     <link rel="alternative" href="/atom.xml" title="Deklban的博客" type="application/atom+xml">
   
@@ -159,41 +159,202 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-七进制与九进制" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-链表-求两个一元多项式的和与乘积" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      七进制与九进制
+      链表--求两个一元多项式的和与乘积
     </h1>
   
 
         
-        <a href="/2018/09/28/七进制与九进制/" class="archive-article-date">
-  	<time datetime="2018-09-28T10:28:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-28</time>
+        <a href="/2018/10/16/链表-求两个一元多项式的和与乘积/" class="archive-article-date">
+  	<time datetime="2018-10-16T02:46:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h5 id="特殊自然数"><a href="#特殊自然数" class="headerlink" title="特殊自然数"></a>特殊自然数</h5><p>一个十进制自然数,它的七进制与九进制表示都是三位数，且七进制与九进制的三位数码表示顺序正好相反。编程求此自然数,并输出显示。</p>
+        <p>一个使用链表做的多项式相加相乘的程序，记录于此。</p>
 <a id="more"></a>
-<h5 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h5><p>无。</p>
-<h5 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h5><p>三行：<br>第一行是此自然数的十进制表示；<br>第一行是此自然数的七进制表示；<br>第一行是此自然数的九进制表示。</p>
-<h5 id="样例输入、输出"><a href="#样例输入、输出" class="headerlink" title="样例输入、输出"></a>样例输入、输出</h5><p>无</p>
-<h5 id="first-try"><a href="#first-try" class="headerlink" title="first try"></a>first try</h5><p>拿到这个问题，我考虑的角度是递增七进制数，测试其是否满足条件，代码如下。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 求特殊自然数</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> A,B,C;<span class="comment">//代表三个位数</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">seperate</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> &amp;a,<span class="keyword">int</span>&amp; b,<span class="keyword">int</span>&amp; c)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	a = n/<span class="number">100</span>;</span><br><span class="line">	c = n%<span class="number">10</span>;</span><br><span class="line">	b = n/<span class="number">10</span> %<span class="number">10</span>;</span><br><span class="line">  &#125;  </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span> &amp;ten,<span class="keyword">int</span> &amp;seven,<span class="keyword">int</span> &amp;nine)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	seperate(seven,A,B,C);</span><br><span class="line">	<span class="keyword">if</span>(A*<span class="number">49</span>+B*<span class="number">7</span>+C ==C*<span class="number">81</span>+B*<span class="number">9</span>+A)  <span class="comment">//找到了</span></span><br><span class="line">		 &#123;</span><br><span class="line">		 	ten = A*<span class="number">49</span>+B*<span class="number">7</span>+C;</span><br><span class="line">		 	nine = C*<span class="number">100</span>+B*<span class="number">10</span>+A;</span><br><span class="line">		 	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">		 &#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> ten,sev=<span class="number">100</span>,nin;</span><br><span class="line">	<span class="keyword">while</span>(sev&lt;<span class="number">1000</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(change(ten,sev,nin))</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;ten&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;sev&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;nin&lt;&lt;<span class="built_in">endl</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">			<span class="comment">//break;</span></span><br><span class="line">		&#125;</span><br><span class="line">		sev++;</span><br><span class="line">		ten = <span class="number">0</span>;</span><br><span class="line">		nin = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>其输出有三组，具体如下：</p>
-<p>155<br>281<br>182</p>
-<p>248<br>503<br>305</p>
-<p>403<br>784<br>487</p>
-<p>正确的答案应该是只有中间一组，错误的原因在于七进制不可能有8出现。</p>
-<h5 id="second-try"><a href="#second-try" class="headerlink" title="second try"></a>second try</h5><p>基于上面的分析，改正后的代码类似下面这样（参考自网络)</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">65</span>; i &lt;= <span class="number">342</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> ((i % <span class="number">9</span> == i / <span class="number">49</span>) &amp;&amp;</span><br><span class="line">            (i / <span class="number">9</span> % <span class="number">9</span> == i / <span class="number">7</span> % <span class="number">7</span>) &amp;&amp;</span><br><span class="line">            (i / <span class="number">81</span> == i % <span class="number">7</span>)) &#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; i / <span class="number">49</span> &lt;&lt; i / <span class="number">7</span> % <span class="number">7</span> &lt;&lt; i % <span class="number">7</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; i / <span class="number">81</span> &lt;&lt; i / <span class="number">9</span> % <span class="number">9</span> &lt;&lt; i % <span class="number">9</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>能够实现目标，并且复杂度也不高。</p>
+<h5 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h5><p>设计函数分别求两个一元多项式的乘积与和。</p>
+<p>输入格式:<br>输入分2行，每行分别先给出多项式非零项的个数，再以指数递降方式输入一个多项式非零项系数和指数（绝对值均为不超过1000的整数）。数字间以空格分隔。</p>
+<p>输出格式:<br>输出分2行，分别以指数递降方式输出乘积多项式以及和多项式非零项的系数和指数。数字间以空格分隔，但结尾不能有多余空格。零多项式应输出0 0。</p>
+<p>输入样例:<br>4 3 4 -5 2  6 1  -2 0<br>3 5 20  -7 4  3 1</p>
+<p>输出样例:<br>15 24 -25 22 30 21 -10 20 -21 8 35 6 -33 5 14 4 -15 3 18 2 -6 1<br>5 20 -4 4 -5 2 9 1 -2 0</p>
+<h5 id="程序"><a href="#程序" class="headerlink" title="程序"></a>程序</h5><pre><code class="C">
+<span class="comment">//一元多项式的乘法与加法运算</span>
+
+<span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span>
+<span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span>
+
+<span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">PolyNode</span> *<span class="title">Polynomial</span>;</span>
+<span class="class"><span class="keyword">struct</span> <span class="title">PolyNode</span>{</span>
+    <span class="keyword">int</span> coef;<span class="comment">//系数</span>
+    <span class="keyword">int</span> expon;<span class="comment">//指数</span>
+    Polynomial link;  <span class="comment">//指向下一个 </span>
+}; 
+
+<span class="comment">//将c,e加入新节点，在pRear所指的节点后，传递的是pRear的地址，即指向指针的指针</span>
+<span class="function"><span class="keyword">void</span> <span class="title">Attach</span><span class="params">(<span class="keyword">int</span> c,<span class="keyword">int</span> e,Polynomial *pRear)</span></span>
+<span class="function"></span>{
+    Polynomial P;
+    P=(Polynomial)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct PolyNode));<span class="comment">//为新节点申请空间 </span>
+    P-&gt;coef=c;
+    P-&gt;expon = e;
+    P-&gt;link = <span class="literal">NULL</span>;
+    (*pRear)-&gt;link=P; <span class="comment">//当前节点指向下一个节点 </span>
+    *pRear=P;<span class="comment">//修改pRear到新节点 </span>
+ } 
+
+<span class="function">Polynomial <span class="title">ReadPoly</span><span class="params">()</span></span>
+<span class="function"></span>{
+    Polynomial P,Rear,t;
+    <span class="keyword">int</span> c,e,N;
+    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;N);
+    P=(Polynomial)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct PolyNode)); <span class="comment">//链表头的空节点 </span>
+    P-&gt;link = <span class="literal">NULL</span>;
+    Rear = P;
+    <span class="keyword">while</span>(N--){
+        <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;c,&amp;e);
+        Attach(c,e,&amp;Rear); <span class="comment">//将当前项插入多项式尾部 </span>
+    }
+    t = P;P = P -&gt; link; <span class="built_in">free</span>(t); <span class="comment">//删除临时生成的头结点,这时P指向的就是含第一个输入项的节点 </span>
+    <span class="keyword">return</span> P; 
+}
+
+<span class="function">Polynomial <span class="title">Add</span><span class="params">(Polynomial P1,Polynomial P2)</span>  <span class="comment">//相加内容给到P </span></span>
+<span class="function"></span>{
+    Polynomial P,t1,t2,t,Rear;
+    t1=P1;t2=P2;
+    P=(Polynomial)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct PolyNode));
+    P-&gt;link = <span class="literal">NULL</span>;
+    Rear = P;
+    <span class="keyword">while</span>(t1 &amp;&amp; t2) <span class="comment">//当t1和t2都不是空的时候，判断 </span>
+    {
+        <span class="keyword">if</span>(t1-&gt;expon == t2-&gt;expon ) <span class="comment">//系数相等，直接相加 </span>
+        {
+            <span class="keyword">if</span>(t1-&gt;coef+t2-&gt;coef) <span class="comment">//系数和为零不添加 </span>
+                Attach(t1-&gt;coef +t2-&gt;coef ,t1-&gt;expon ,&amp;Rear);
+            t1=t1-&gt;link;
+            t2=t2-&gt;link;
+            }
+        <span class="keyword">else</span> <span class="keyword">if</span>(t1-&gt;expon &gt;t2-&gt;expon ) <span class="comment">//t1中的系数比t2中的大，则把t1的给P </span>
+        {
+            Attach(t1-&gt;coef ,t1-&gt;expon ,&amp;Rear);
+            t1 = t1-&gt;link;
+            }
+        <span class="keyword">else</span>
+        {
+            Attach(t2-&gt;coef ,t2-&gt;expon ,&amp;Rear);
+            t2 = t2-&gt;link;
+            }    
+    }
+    <span class="comment">//循环结束之后两者中还有不空的，处理之</span>
+    <span class="keyword">while</span>(t1)
+    {
+        Attach(t1-&gt;coef ,t1-&gt;expon ,&amp;Rear);
+        t1=t1-&gt;link;
+     } 
+    <span class="keyword">while</span>(t2)
+    {
+        Attach(t2-&gt;coef ,t2-&gt;expon ,&amp;Rear);
+        t2 = t2-&gt;link;
+    }
+    t = P;P = P -&gt; link; <span class="built_in">free</span>(t); <span class="comment">//释放之前申请的空头结点</span>
+    <span class="keyword">return</span> P; 
+}
+
+<span class="function">Polynomial <span class="title">Mult</span><span class="params">(Polynomial P1,Polynomial P2)</span></span>
+<span class="function"></span>{
+    Polynomial P,Rear,t1,t2,t;
+    <span class="keyword">int</span> c,e;
+    <span class="keyword">if</span>(!P1 || !P2) <span class="keyword">return</span> <span class="literal">NULL</span>; <span class="comment">//两个都是空的，直接返回空 </span>
+
+    t1=P1;t2=P2;
+    P=(Polynomial)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct PolyNode));
+    P-&gt;link=<span class="literal">NULL</span>;
+    Rear = P;
+    <span class="keyword">while</span>(t2) <span class="comment">//先用P1的第一项乘P2，得到P </span>
+    {
+        Attach(t1-&gt;coef*t2-&gt;coef,t1-&gt;expon+t2-&gt;expon,&amp;Rear);
+        t2=t2-&gt;link;
+    }
+    t1=t1-&gt;link;
+    <span class="keyword">while</span>(t1)
+    {
+        t2=P2;Rear = P;
+        <span class="keyword">while</span>(t2)
+        {
+            e= t1-&gt;expon + t2-&gt;expon ;
+            c = t1-&gt;coef * t2-&gt;coef ;
+            <span class="comment">//接下来寻找相乘后的的结果存放的位置 </span>
+            <span class="keyword">while</span>(Rear-&gt;link &amp;&amp; Rear-&gt;link-&gt;expon&gt;e) <span class="comment">//判断P下个位置和将要插入的项的指数大小，大了则需要继续找 </span>
+                Rear=Rear-&gt;link;
+            <span class="keyword">if</span>(Rear-&gt;link&amp;&amp;Rear-&gt;link-&gt;expon==e) <span class="comment">//指数相等，合并 ，系数相加 </span>
+            {
+                <span class="keyword">if</span>(Rear-&gt;link-&gt;coef+c) <span class="comment">//系数相加后不为零</span>
+                    Rear-&gt;link-&gt;coef += c;
+                <span class="keyword">else</span>  <span class="comment">//系数相加后为零，删除掉 </span>
+                {
+                    t=Rear-&gt;link;
+                    Rear-&gt;link=t-&gt;link;
+                    <span class="built_in">free</span>(t);
+                 } 
+            }
+            <span class="keyword">else</span>{<span class="comment">//创造新节点 插入进去 </span>
+                t=(Polynomial)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct PolyNode));
+                t-&gt;coef=c;t-&gt;expon=e;
+                t-&gt;link=Rear-&gt;link;
+                Rear-&gt;link=t;
+                Rear = Rear-&gt;link;
+            }
+            t2=t2-&gt;link;
+        }
+        t1 = t1-&gt;link;
+    }
+    t2=P;P=P-&gt;link;<span class="built_in">free</span>(t2);
+    <span class="keyword">return</span> P;
+}
+
+<span class="function"><span class="keyword">void</span> <span class="title">PrintPoly</span><span class="params">(Polynomial P)</span></span>
+<span class="function"></span>{
+    <span class="keyword">int</span> flag = <span class="number">0</span>;
+    <span class="keyword">if</span>(!P)
+    {
+        <span class="built_in">printf</span>(<span class="string">"0 0\n"</span>);
+        <span class="keyword">return</span> ; <span class="comment">//零多项式输出 </span>
+    }
+    <span class="keyword">while</span>(P){
+        <span class="keyword">if</span>(!flag)
+            flag=<span class="number">1</span>; <span class="comment">//保证第一项前没有零，其余都有 </span>
+        <span class="keyword">else</span>
+            <span class="built_in">printf</span>(<span class="string">" "</span>);
+        <span class="built_in">printf</span>(<span class="string">"%d %d"</span>,P-&gt;coef,P-&gt;expon);
+        P=P-&gt;link;
+    }
+    <span class="built_in">printf</span>(<span class="string">"\n"</span>);
+}
+
+<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>
+<span class="function"></span>{
+    Polynomial P1,P2,PP,PS;
+
+    P1=ReadPoly();
+    P2=ReadPoly();
+    PP=Mult(P1,P2);
+    PrintPoly(PP);
+    PS=Add(P1,P2);
+    PrintPoly(PS);
+
+    <span class="keyword">return</span> <span class="number">0</span>;
+}
+
+</code></pre>
 
       
 
@@ -207,11 +368,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">C</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
         		</li>
       		
 		</ul>
@@ -267,7 +428,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/28/七进制与九进制/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/10/16/链表-求两个一元多项式的和与乘积/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -281,18 +442,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/10/09/三道位运算的题目/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          三道位运算的题目
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/09/27/用递归将问题分解成规模更小的子问题/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">用递归将问题分解成规模更小的子问题</div>
+    <a href="/2018/10/12/魔兽世界之二：装备/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">魔兽世界之二：装备</div>
       <i class="icon-circle-right"></i>
     </a>
   
