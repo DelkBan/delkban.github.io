@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>快速排序 | Deklban的博客</title>
+  <title>十二月初小记 | Deklban的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Tips: 对于不知道大小的数组a[]，可以用下列语句获得长度： int size =  sizeof(a)/sizeof(int);">
-<meta name="keywords" content="算法,C++,排序,代码块">
+  <meta name="description" content="有一段时间没有更新博客了，倒不是最近学习松懈了，而是我在思考什么样的内容才值得被记录下来。最近接触的方面比较广，从前端入门的HTML、CSS、JS，到java、python都有涉猎，也有突然到来的项目消耗不少时间，再加上期末考试正在逼近……时间真的是过的很快的，我认为自己已经很珍惜时间用来学习了，可还是会扼腕叹息它的飞速流逝，最近还时常会嗜睡，即便是偶尔睡了八个多小时，在工作学习的时候还是会感到有">
+<meta name="keywords" content="随笔">
 <meta property="og:type" content="article">
-<meta property="og:title" content="快速排序">
-<meta property="og:url" content="http://yoursite.com/2018/10/10/快速排序/index.html">
+<meta property="og:title" content="十二月初小记">
+<meta property="og:url" content="http://yoursite.com/2018/12/04/十二月初小记/index.html">
 <meta property="og:site_name" content="Deklban的博客">
-<meta property="og:description" content="Tips: 对于不知道大小的数组a[]，可以用下列语句获得长度： int size =  sizeof(a)/sizeof(int);">
+<meta property="og:description" content="有一段时间没有更新博客了，倒不是最近学习松懈了，而是我在思考什么样的内容才值得被记录下来。最近接触的方面比较广，从前端入门的HTML、CSS、JS，到java、python都有涉猎，也有突然到来的项目消耗不少时间，再加上期末考试正在逼近……时间真的是过的很快的，我认为自己已经很珍惜时间用来学习了，可还是会扼腕叹息它的飞速流逝，最近还时常会嗜睡，即便是偶尔睡了八个多小时，在工作学习的时候还是会感到有">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-11T02:49:37.086Z">
+<meta property="og:updated_time" content="2018-12-04T10:48:48.782Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="快速排序">
-<meta name="twitter:description" content="Tips: 对于不知道大小的数组a[]，可以用下列语句获得长度： int size =  sizeof(a)/sizeof(int);">
+<meta name="twitter:title" content="十二月初小记">
+<meta name="twitter:description" content="有一段时间没有更新博客了，倒不是最近学习松懈了，而是我在思考什么样的内容才值得被记录下来。最近接触的方面比较广，从前端入门的HTML、CSS、JS，到java、python都有涉猎，也有突然到来的项目消耗不少时间，再加上期末考试正在逼近……时间真的是过的很快的，我认为自己已经很珍惜时间用来学习了，可还是会扼腕叹息它的飞速流逝，最近还时常会嗜睡，即便是偶尔睡了八个多小时，在工作学习的时候还是会感到有">
   
     <link rel="alternative" href="/atom.xml" title="Deklban的博客" type="application/atom+xml">
   
@@ -159,45 +159,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-快速排序" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-十二月初小记" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      快速排序
+      十二月初小记
     </h1>
   
 
         
-        <a href="/2018/10/10/快速排序/" class="archive-article-date">
-  	<time datetime="2018-10-10T10:14:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-10</time>
+        <a href="/2018/12/04/十二月初小记/" class="archive-article-date">
+  	<time datetime="2018-12-04T10:41:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>Tips:</strong></p>
-<p>对于不知道大小的数组a[]，可以用下列语句获得长度：</p>
-<p><code>int size =  sizeof(a)/sizeof(int);</code></p>
-<a id="more"></a>
-<h5 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h5><p>排序可以按照以下顺序完成：</p>
-<ol>
-<li>设k=a[0],将k挪到适当位置，使得比k小的元素都在k左边，比k大的元素都在k右边，和k相等的在左右都可以。(O(n)时间完成)</li>
-<li>把k左边的部分快速排序</li>
-<li>把k右边的部分快速排序</li>
-</ol>
-<p>下面对第一步进行详细说明：</p>
-<p>假设起始标号（最左侧）为i，结束标号为j。则在i和j不相等的时候进行循环，</p>
-<p>经过偶数次交换（包括零次）时比较k与a[j]，如果k小于等于a[j]，则不用动，–j继续判断</p>
-<p>若k比a[j]大，说明k需要交换，则交换a[i]与a[j]，交换前k在a[i]的位置，整个过程中k一定在a[i]或a[j]中</p>
-<p>经过奇数次交换，比较k与a[i]，k比a[i]大，则不动，++i继续判断，反之交换。</p>
-<p>最终i和j会相等，k的位置确定，然后使用递归计算左右两侧的。</p>
-<p>一般情况下，复杂度为O(nlogn)</p>
-<p>最糟糕的情况下，复杂度为O(n<sup>2</sup>)</p>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//快速排序</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> &amp;a,<span class="keyword">int</span> &amp;b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> temp=a;</span><br><span class="line">	a = b;</span><br><span class="line">	b = temp;</span><br><span class="line"> &#125; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">QuickSort</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> s,<span class="keyword">int</span> e)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>( s &gt;= e)</span><br><span class="line">		<span class="keyword">return</span>;<span class="comment">//如果起始位置不比终止位置小，说明不用排序</span></span><br><span class="line">	<span class="keyword">int</span> k = a[s]; <span class="comment">//将k定在最左侧</span></span><br><span class="line">	<span class="keyword">int</span> i = s,j = e;</span><br><span class="line">	<span class="keyword">while</span>( i != j)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">while</span>( j &gt; i &amp;&amp; a[j]&gt;=k)</span><br><span class="line">			--j;</span><br><span class="line">		swap(a[i],a[j]); <span class="comment">//起初k在a[i]中，交换后去a[j]中</span></span><br><span class="line">		<span class="keyword">while</span>( i &lt; j &amp;&amp; a[i]&lt;=k)</span><br><span class="line">			++i;</span><br><span class="line">		swap(a[i],a[j]); </span><br><span class="line">	 &#125; <span class="comment">//处理完后，a[i]=a[j]=k</span></span><br><span class="line">	 QuickSort(a,s,i<span class="number">-1</span>);</span><br><span class="line">	 QuickSort(a,i+<span class="number">1</span>,e); </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> a[] = &#123; <span class="number">99</span>,<span class="number">28</span>,<span class="number">29</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">11</span>,<span class="number">2</span>,<span class="number">8</span>,<span class="number">29</span>,<span class="number">89</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> size = <span class="keyword">sizeof</span>(a)/<span class="keyword">sizeof</span>(<span class="keyword">int</span>);</span><br><span class="line">	QuickSort(a,<span class="number">0</span>,size<span class="number">-1</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;size;++i)</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; a[i] &lt;&lt; <span class="string">","</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>有一段时间没有更新博客了，倒不是最近学习松懈了，而是我在思考什么样的内容才值得被记录下来。<br>最近接触的方面比较广，从前端入门的HTML、CSS、JS，到java、python都有涉猎，也有突然到来的项目消耗不少时间，再加上期末考试正在逼近……<br>时间真的是过的很快的，我认为自己已经很珍惜时间用来学习了，可还是会扼腕叹息它的飞速流逝，最近还时常会嗜睡，即便是偶尔睡了八个多小时，在工作学习的时候还是会感到有些力不从心。<br>没啥好说的，加油吧。</p>
 
       
 
@@ -211,19 +193,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">排序</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">代码块</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
         		</li>
       		
 		</ul>
@@ -279,7 +249,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/10/10/快速排序/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/12/04/十二月初小记/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -293,18 +263,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/10/11/分治排序与求排列逆序数/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          分治排序与求排列逆序数
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/10/09/三道位运算的题目/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">三道位运算的题目</div>
+    <a href="/2018/11/07/记于研一第九周周三/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">记于研一第九周周三</div>
       <i class="icon-circle-right"></i>
     </a>
   
