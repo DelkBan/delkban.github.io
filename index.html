@@ -160,6 +160,355 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-SMGP短信网关开发（二）数据库设计" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/12/SMGP短信网关开发（二）数据库设计/">SMGP短信网关开发（二）数据库设计</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/12/SMGP短信网关开发（二）数据库设计/" class="archive-article-date">
+  	<time datetime="2019-10-12T12:19:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/12/SMGP短信网关开发（二）数据库设计/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-SMGP短信网关开发（一）协议解读-报文分析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/10/SMGP短信网关开发（一）协议解读-报文分析/">SMGP短信网关开发（一）协议解读&amp;功能分析</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/10/SMGP短信网关开发（一）协议解读-报文分析/" class="archive-article-date">
+  	<time datetime="2019-10-10T08:43:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一  协议解读和报文分析</p>
+<p>二 数据库设计</p>
+<p>三 程序结构设计</p>
+<p>四 具体实现中的问题（线程安全、滑动窗口等</p>
+<p>五 外围接口设计与开发</p>
+<p>接下来将用大概五篇文章进行电信SMGP短信网关协议的开发实现，本篇为第一篇，主要进行一些准备工作，进行协议解读和功能分析。</p>
+<h2 id="协议解读"><a href="#协议解读" class="headerlink" title="协议解读"></a>协议解读</h2><p><a href="https://github.com/DelkBan/source/blob/master/files/%E4%B8%AD%E5%9B%BD%E7%94%B5%E4%BF%A1SMGP%E5%8D%8F%E8%AE%AE%EF%BC%88V3.0.2%EF%BC%89080620.doc" target="_blank" rel="noopener">完整的协议文件在这里</a></p>
+<h3 id="连接方式"><a href="#连接方式" class="headerlink" title="连接方式"></a>连接方式</h3><p>以客户-服务器方式建立TCP长连接，之所以采用长连接是因为短信发送密度较大，频繁建立短连接将会无意义耗费大量资源。当信道上没有数据传输时，双方每隔一段时间发送链路检测包以维持连接。</p>
+<h3 id="消息结构"><a href="#消息结构" class="headerlink" title="消息结构"></a>消息结构</h3><p>这里的消息是指除了TCP头之外的PDU的内容，即在PDU中又增加了一层SMGP定义的消息头和内容。消息结构包括消息头和消息体。</p>
+<h4 id="消息头结构"><a href="#消息头结构" class="headerlink" title="消息头结构"></a>消息头结构</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">字段</th>
+<th style="text-align:center">长度（字节）</th>
+<th style="text-align:center">数据类型</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">PacketLength</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">Integer</td>
+<td style="text-align:center">数据包长度</td>
+</tr>
+<tr>
+<td style="text-align:center">RequestID</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">Integer</td>
+<td style="text-align:center">请求标识</td>
+</tr>
+<tr>
+<td style="text-align:center">SequenceID</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">Integer</td>
+<td style="text-align:center">消息流水号</td>
+</tr>
+</tbody>
+</table>
+<p>数据包长度是指SMGP数据包长度，是包头和包体的长度之和。请求标识表示SMGP数据包的类型。几个比较重要的标识说明如下所示：</p>
+<table>
+<thead>
+<tr>
+<th><strong>请求名称</strong></th>
+<th><strong>请求标识</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Login</td>
+<td>0x00000001</td>
+<td>客户端登录</td>
+</tr>
+<tr>
+<td>Login_Resp</td>
+<td>0x80000001</td>
+<td>客户端登录应答</td>
+</tr>
+<tr>
+<td>Submit</td>
+<td>0x00000002</td>
+<td>提交短消息</td>
+</tr>
+<tr>
+<td>Submit_Resp</td>
+<td>0x80000002</td>
+<td>提交短消息应答</td>
+</tr>
+<tr>
+<td>Deliver</td>
+<td>0x00000003</td>
+<td>下发短消息</td>
+</tr>
+<tr>
+<td>Deliver_Resp</td>
+<td>0x80000003</td>
+<td>下发短消息应答</td>
+</tr>
+<tr>
+<td>Active_Test</td>
+<td>0x00000004</td>
+<td>链路检测</td>
+</tr>
+<tr>
+<td>Active_Test_Resp</td>
+<td>0x80000004</td>
+<td>链路检测应答</td>
+</tr>
+</tbody>
+</table>
+<h4 id="消息体结构"><a href="#消息体结构" class="headerlink" title="消息体结构"></a>消息体结构</h4><p> 每个SMGP数据包中均包含一个消息头和对应的消息体，消息头中的请求标识对应具体的操作。整理来讲每种操作都包含发送和应答两种，而涉及到的操作也主要是登录、提交（Submit）、下发回执（Deliver）和链路检测（Active_test)。<br> 每种操作具体的格式详见完整的协议文件，下面仅取关键参数进行介绍。</p>
+<h5 id="登录操作"><a href="#登录操作" class="headerlink" title="登录操作"></a>登录操作</h5><p>客户端在发送消息之前必须通过登录操作向服务端进行认证，认证通过后建立应用层的连接，然后才能进行消息的接收和发送。如果认证不通过，将会断开TPC层的连接。</p>
+<h6 id="Login-0x00000001"><a href="#Login-0x00000001" class="headerlink" title="Login(0x00000001)"></a>Login(0x00000001)</h6><p>客户端向服务端发送的登录消息。</p>
+<table>
+<thead>
+<tr>
+<th><strong>字段</strong></th>
+<th><strong>长度</strong></th>
+<th><strong>数据类型</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ClientID</td>
+<td>8</td>
+<td>Octet String</td>
+<td>客户端用来登录服务器端的用户账号。</td>
+</tr>
+<tr>
+<td>AuthenticatorClient</td>
+<td>16</td>
+<td>Octet String</td>
+<td>客户端认证码，用来鉴别客户端的合法性。</td>
+</tr>
+<tr>
+<td>LoginMode</td>
+<td>1</td>
+<td>Integer</td>
+<td>客户端用来登录服务器端的登录类型。</td>
+</tr>
+<tr>
+<td>TimeStamp</td>
+<td>4</td>
+<td>Integer</td>
+<td>时间戳</td>
+</tr>
+<tr>
+<td>ClientVersion</td>
+<td>1</td>
+<td>Integer</td>
+<td>客户端支持的协议版本号</td>
+</tr>
+</tbody>
+</table>
+<p>客户端认证码使用单向MD5计算，另外值得注意的是登录类型，0发送，1接收，2发送接收，这个会影响后面的程序设计。</p>
+<h6 id="Login-Resp-0x80000001"><a href="#Login-Resp-0x80000001" class="headerlink" title="Login_Resp(0x80000001)"></a>Login_Resp(0x80000001)</h6><p>服务端向客户端返回的登录请求回应，包含认证结果。</p>
+<h5 id="发送操作"><a href="#发送操作" class="headerlink" title="发送操作"></a>发送操作</h5><h6 id="Submit-0x00000002"><a href="#Submit-0x00000002" class="headerlink" title="Submit(0x00000002)"></a>Submit(0x00000002)</h6><p>向服务端提交短信发送请求的消息，参数较多不再赘述。值得注意的是如果需要发送的是长短信，则需要对可选参数进行设置。</p>
+<h6 id="Submit-Resp-0x80000002"><a href="#Submit-Resp-0x80000002" class="headerlink" title="Submit_Resp(0x80000002)"></a>Submit_Resp(0x80000002)</h6><p>服务端对Submit的回应，包含的两个参数都很重要。短消息流水号<code>MsgID</code>是某条短信记录的持久化唯一标识，<code>Status</code>则包含从客户端到服务端这一段短信的发送状态。注意，这里的成功不代表最终发送成功，只代表成功交给网关进行处理。<br>这里可能出现一些错误，比如Submit中包含的参数格式错误、发送窗口设置太大导致的系统忙等。</p>
+<h6 id="长短信"><a href="#长短信" class="headerlink" title="长短信"></a>长短信</h6><p>由于本次系统的设计在发送短信时采用UCS2编码，即英文字符和中文字符均占两个字节，而我们定义小于140字节的短信可以在一个SMGP数据包中进行发送，当短信内容超过140字节时，称为长短信，此时需要将短信内容拆开，分成若干个SMGP数据包进行发送。<br>过往的短信网关设计都是一条TCP报文中仅包含一个SMGP数据包，一条长短信需要若干条TCP报文才能传输完整，为了提高吞吐量，本次设计尽可能的将多个数据包放在同一个TCP的PDU中，相关内容详见第三篇。<br>为了实现长短信的拼接，需要在SMGP数据包中增加6个字节，如下表。</p>
+<table>
+<thead>
+<tr>
+<th>位置</th>
+<th>说明</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>包头长度</td>
+<td>0x05</td>
+</tr>
+<tr>
+<td>1</td>
+<td>包头类型标识</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>2</td>
+<td>子包长度</td>
+<td>0x03</td>
+</tr>
+<tr>
+<td>3</td>
+<td>长消息参考号</td>
+<td>从0开始，每次+1，最大0xff</td>
+</tr>
+<tr>
+<td>4</td>
+<td>本条长消息的总消息数</td>
+<td>1–255</td>
+</tr>
+<tr>
+<td>5</td>
+<td>本条在长消息中的位置</td>
+<td>1–255</td>
+</tr>
+</tbody>
+</table>
+<p>另外还要在Submit消息中增加可选参数，即TLV(Type,Length,value)字段TP_udhi的value为0x01。</p>
+<h5 id="下发操作"><a href="#下发操作" class="headerlink" title="下发操作"></a>下发操作</h5><h6 id="Deliver-0x00000003"><a href="#Deliver-0x00000003" class="headerlink" title="Deliver(0x00000003)"></a>Deliver(0x00000003)</h6><p>SMGW给客户端返回以MsgID为标识的消息的状态报告，此部分由SMGW实现。<br>状态报告中包含短信发送状态，发送成功时间等，这里的发送状态是指短信是否到达用户设备，可能会因用户关机导致发送状态显示失败。<br>对于长短信，拆开的每一个数据包都对应不同的MsgID，因此一条长短信会对应若干个Deliver消息。</p>
+<h6 id="Deliver-Resp-0x80000003"><a href="#Deliver-Resp-0x80000003" class="headerlink" title="Deliver_Resp(0x80000003)"></a>Deliver_Resp(0x80000003)</h6><p>由我方实现，返回两个参数给服务端。</p>
+<h5 id="链路检测操作"><a href="#链路检测操作" class="headerlink" title="链路检测操作"></a>链路检测操作</h5><p>发送0x00000004，回复0x80000004，心跳检测。</p>
+<h2 id="功能描述"><a href="#功能描述" class="headerlink" title="功能描述"></a>功能描述</h2><p>核心功能就是实现短信的发送，并根据发送情况做好记录，最需要解决的是性能问题。目前使用的短信网关采用同步方式，由于应答方对每条消息都要50ms才能应答，导致TPS只有20左右，因此要改用异步方式进行发送，短信发送和回执的接收分开操作，提高TPS。<br>整体功能如下：</p>
+<ul>
+<li>发送短信<ul>
+<li>异步发送</li>
+<li>发送短短信</li>
+<li>发送长短信</li>
+<li>区分短信优先级，高优先级拥有优先处理权</li>
+<li>区分是否只在白天发送</li>
+<li>多线程，多并发。</li>
+<li>数据正确入库</li>
+</ul>
+</li>
+<li>接收回执<ul>
+<li>接收短信发送状态</li>
+<li>正确处理长短信</li>
+<li>持久化数据库的分库分片分桶</li>
+<li>多线程，多并发。</li>
+</ul>
+</li>
+<li>提供接口给外围</li>
+<li>保证可靠的发送速度</li>
+<li>线程安全</li>
+<li>日志记录</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">短信网关</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/10/SMGP短信网关开发（一）协议解读-报文分析/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-生日总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -805,171 +1154,6 @@
 
 
   
-    <article id="post-三道位运算的题目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/09/三道位运算的题目/">三道位运算的题目</a>
-    </h1>
-  
-
-        
-        <a href="/2018/10/09/三道位运算的题目/" class="archive-article-date">
-  	<time datetime="2018-10-09T12:11:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h4><ul>
-<li>某位置零：<code>n &amp;~ (1&lt;&lt;i);</code></li>
-<li>某位置一：<code>n |= (1&lt;&lt;i):</code></li>
-<li>判断某位1还是0：<code>(n&gt;&gt;i)&amp;0x1</code></li>
-<li>与1异或可以实现取反</li>
-</ul>
-        
-          <a class="article-more-a" href="/2018/10/09/三道位运算的题目/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">位运算</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/10/09/三道位运算的题目/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-七进制与九进制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/28/七进制与九进制/">七进制与九进制</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/28/七进制与九进制/" class="archive-article-date">
-  	<time datetime="2018-09-28T10:28:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h5 id="特殊自然数"><a href="#特殊自然数" class="headerlink" title="特殊自然数"></a>特殊自然数</h5><p>一个十进制自然数,它的七进制与九进制表示都是三位数，且七进制与九进制的三位数码表示顺序正好相反。编程求此自然数,并输出显示。</p>
-        
-          <a class="article-more-a" href="/2018/09/28/七进制与九进制/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/28/七进制与九进制/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1088,7 +1272,31 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PTA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">短信网关</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">c++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">枚举</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1096,15 +1304,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">输出格式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1120,19 +1324,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PTA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">博客技巧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">枚举</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1148,15 +1340,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">面向对象</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">面向对象</a>
               </li>
             
             <div class="clearfix"></div>
