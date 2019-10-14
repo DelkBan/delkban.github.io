@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Deklban的博客">
 <meta property="og:description" content="一  协议解读和报文分析 二 数据库设计 三 程序结构设计 四 具体实现中的问题（线程安全、滑动窗口等 五 外围接口设计与开发 接下来将用大概五篇文章进行电信SMGP短信网关协议的开发实现，本篇为第一篇，主要进行一些准备工作，进行协议解读和功能分析。 协议解读完整的协议文件在这里 连接方式以客户-服务器方式建立TCP长连接，之所以采用长连接是因为短信发送密度较大，频繁建立短连接将会无意义耗费大量资">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-12T13:02:13.835Z">
+<meta property="og:updated_time" content="2019-10-12T13:10:20.404Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SMGP短信网关开发（一）协议解读&amp;功能分析">
 <meta name="twitter:description" content="一  协议解读和报文分析 二 数据库设计 三 程序结构设计 四 具体实现中的问题（线程安全、滑动窗口等 五 外围接口设计与开发 接下来将用大概五篇文章进行电信SMGP短信网关协议的开发实现，本篇为第一篇，主要进行一些准备工作，进行协议解读和功能分析。 协议解读完整的协议文件在这里 连接方式以客户-服务器方式建立TCP长连接，之所以采用长连接是因为短信发送密度较大，频繁建立短连接将会无意义耗费大量资">
@@ -186,7 +186,7 @@
 <p>五 外围接口设计与开发</p>
 <p>接下来将用大概五篇文章进行电信SMGP短信网关协议的开发实现，本篇为第一篇，主要进行一些准备工作，进行协议解读和功能分析。</p>
 <h2 id="协议解读"><a href="#协议解读" class="headerlink" title="协议解读"></a>协议解读</h2><p><a href="https://github.com/DelkBan/source/blob/master/files/%E4%B8%AD%E5%9B%BD%E7%94%B5%E4%BF%A1SMGP%E5%8D%8F%E8%AE%AE%EF%BC%88V3.0.2%EF%BC%89080620.doc" target="_blank" rel="noopener">完整的协议文件在这里</a></p>
-<h3 id="连接方式"><a href="#连接方式" class="headerlink" title="连接方式"></a>连接方式</h3><p>以客户-服务器方式建立TCP长连接，之所以采用长连接是因为短信发送密度较大，频繁建立短连接将会无意义耗费大量资源。当信道上没有数据传输时，双方每隔一段时间发送链路检测包以维持连接。</p>
+<h3 id="连接方式"><a href="#连接方式" class="headerlink" title="连接方式"></a>连接方式</h3><p>以客户-服务器方式建立TCP长连接，之所以采用长连接是因为短信发送密度较大，频繁建立短连接将会无意义耗费大量资源。当信道上没有数据传输时，双方每隔一段时间发送链路检测包以维持连接。<br><a id="more"></a></p>
 <h3 id="消息结构"><a href="#消息结构" class="headerlink" title="消息结构"></a>消息结构</h3><p>这里的消息是指除了TCP头之外的PDU的内容，即在PDU中又增加了一层SMGP定义的消息头和内容。消息结构包括消息头和消息体。</p>
 <h4 id="消息头结构"><a href="#消息头结构" class="headerlink" title="消息头结构"></a>消息头结构</h4><table>
 <thead>
@@ -634,6 +634,14 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">语法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
@@ -650,27 +658,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">枚举</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">语法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">输出格式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -683,6 +675,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">代码块</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">输出格式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -702,15 +702,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">面向对象</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">面向对象</a>
               </li>
             
             <div class="clearfix"></div>
