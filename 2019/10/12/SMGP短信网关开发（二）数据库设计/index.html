@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>SMGP短信网关开发（二）数据库设计 | Deklban的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本篇是SMGP短信网关开发的第二篇，进行数据库的设计。 分析对功能做简单分析，设计数据库思路如下：待发送短信存放在SEND表中，程序持续扫描SEND表，有符合条件的记录则进行发送，完成发送动作立即将数据转移到LOG表中，实现数据持久化。SEND表为单片表，数据变化频繁，总体数据量不大。LOG表需要保留过去一年的短信记录，大概6亿条，采用2个库4分片8分桶。为了保证并发执行的正确性，增加一个记录多并">
+  <meta name="description" content="本篇是SMGP短信网关开发的第二篇，进行数据库的设计。">
 <meta name="keywords" content="短信网关,Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SMGP短信网关开发（二）数据库设计">
 <meta property="og:url" content="http://yoursite.com/2019/10/12/SMGP短信网关开发（二）数据库设计/index.html">
 <meta property="og:site_name" content="Deklban的博客">
-<meta property="og:description" content="本篇是SMGP短信网关开发的第二篇，进行数据库的设计。 分析对功能做简单分析，设计数据库思路如下：待发送短信存放在SEND表中，程序持续扫描SEND表，有符合条件的记录则进行发送，完成发送动作立即将数据转移到LOG表中，实现数据持久化。SEND表为单片表，数据变化频繁，总体数据量不大。LOG表需要保留过去一年的短信记录，大概6亿条，采用2个库4分片8分桶。为了保证并发执行的正确性，增加一个记录多并">
+<meta property="og:description" content="本篇是SMGP短信网关开发的第二篇，进行数据库的设计。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-14T07:34:23.285Z">
+<meta property="og:updated_time" content="2019-10-14T08:15:32.113Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SMGP短信网关开发（二）数据库设计">
-<meta name="twitter:description" content="本篇是SMGP短信网关开发的第二篇，进行数据库的设计。 分析对功能做简单分析，设计数据库思路如下：待发送短信存放在SEND表中，程序持续扫描SEND表，有符合条件的记录则进行发送，完成发送动作立即将数据转移到LOG表中，实现数据持久化。SEND表为单片表，数据变化频繁，总体数据量不大。LOG表需要保留过去一年的短信记录，大概6亿条，采用2个库4分片8分桶。为了保证并发执行的正确性，增加一个记录多并">
+<meta name="twitter:description" content="本篇是SMGP短信网关开发的第二篇，进行数据库的设计。">
   
     <link rel="alternative" href="/atom.xml" title="Deklban的博客" type="application/atom+xml">
   
@@ -180,6 +180,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>本篇是SMGP短信网关开发的第二篇，进行数据库的设计。</p>
+<a id="more"></a>
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>对功能做简单分析，设计数据库思路如下：待发送短信存放在SEND表中，程序持续扫描SEND表，有符合条件的记录则进行发送，完成发送动作立即将数据转移到LOG表中，实现数据持久化。SEND表为单片表，数据变化频繁，总体数据量不大。LOG表需要保留过去一年的短信记录，大概6亿条，采用2个库<em>4分片</em>8分桶。<br>为了保证并发执行的正确性，增加一个记录多并发进程的CFG表。</p>
 <p>//为了解决单条长短信对应多个MsgID的问题，增加LOG的映射表REC。</p>
 <h2 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h2><h3 id="SMGP-MSG-SEND"><a href="#SMGP-MSG-SEND" class="headerlink" title="SMGP_MSG_SEND"></a>SMGP_MSG_SEND</h3><p>消息发送表，需要发送的短信都放入这个表中，发送进程对这个表进行实时扫描，有记录则进行发送，发送完毕则从表中转移出去。因此此SEND表的特征是记录量少，访问较频繁，这个表的读取也是系统的性能瓶颈之一。</p>
@@ -841,14 +842,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">短信网关</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
@@ -861,11 +854,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+                <a href="javascript:void(0)" class="js-tag color5">短信网关</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">代码块</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -873,7 +866,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">位运算</a>
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">代码块</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -885,6 +882,18 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">面向对象</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">引用</a>
               </li>
              
@@ -893,15 +902,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">面向对象</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color4">位运算</a>
               </li>
             
             <div class="clearfix"></div>
