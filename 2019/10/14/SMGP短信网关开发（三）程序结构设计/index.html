@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>SMGP短信网关开发（三）程序结构设计 | Deklban的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本篇是SMGP短信网关开发的第三篇，进行程序结构的设计。 总述由于使用的分布式数据库TeleDB的读写均需要10ms左右的时间，因此程序的性能瓶颈主要在数据库上，每条记录的发送都需要进行读SEND表和写LOG表两种操作，也就是说一条记录的发送需要20ms左右的时间。再考虑其他一些损耗性能的方面，单线程最终的TPS在50条左右。短信有四个优先级，最高优先级的验证码需要随来随发，较低优先级的业务通知可">
+  <meta name="description" content="本篇是SMGP短信网关开发的第三篇，进行程序结构的设计。">
 <meta name="keywords" content="短信网关,Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SMGP短信网关开发（三）程序结构设计">
 <meta property="og:url" content="http://yoursite.com/2019/10/14/SMGP短信网关开发（三）程序结构设计/index.html">
 <meta property="og:site_name" content="Deklban的博客">
-<meta property="og:description" content="本篇是SMGP短信网关开发的第三篇，进行程序结构的设计。 总述由于使用的分布式数据库TeleDB的读写均需要10ms左右的时间，因此程序的性能瓶颈主要在数据库上，每条记录的发送都需要进行读SEND表和写LOG表两种操作，也就是说一条记录的发送需要20ms左右的时间。再考虑其他一些损耗性能的方面，单线程最终的TPS在50条左右。短信有四个优先级，最高优先级的验证码需要随来随发，较低优先级的业务通知可">
+<meta property="og:description" content="本篇是SMGP短信网关开发的第三篇，进行程序结构的设计。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-15T02:57:24.328Z">
+<meta property="og:updated_time" content="2019-10-15T02:59:45.646Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SMGP短信网关开发（三）程序结构设计">
-<meta name="twitter:description" content="本篇是SMGP短信网关开发的第三篇，进行程序结构的设计。 总述由于使用的分布式数据库TeleDB的读写均需要10ms左右的时间，因此程序的性能瓶颈主要在数据库上，每条记录的发送都需要进行读SEND表和写LOG表两种操作，也就是说一条记录的发送需要20ms左右的时间。再考虑其他一些损耗性能的方面，单线程最终的TPS在50条左右。短信有四个优先级，最高优先级的验证码需要随来随发，较低优先级的业务通知可">
+<meta name="twitter:description" content="本篇是SMGP短信网关开发的第三篇，进行程序结构的设计。">
   
     <link rel="alternative" href="/atom.xml" title="Deklban的博客" type="application/atom+xml">
   
@@ -180,6 +180,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>本篇是SMGP短信网关开发的第三篇，进行程序结构的设计。</p>
+<a id="more"></a>
 <h2 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h2><p>由于使用的分布式数据库TeleDB的读写均需要10ms左右的时间，因此程序的性能瓶颈主要在数据库上，每条记录的发送都需要进行读SEND表和写LOG表两种操作，也就是说一条记录的发送需要20ms左右的时间。再考虑其他一些损耗性能的方面，单线程最终的TPS在50条左右。<br>短信有四个优先级，最高优先级的验证码需要随来随发，较低优先级的业务通知可以被阻塞，因此需要使用不同的线程进行逻辑实现。在高优先级进行发送时，使用阻塞标志位对低优先级进行阻塞，同时给低优先级提供一定的“低保”，即保证能够进行一定程度的发送。<br>为了满足发送需求，可能需要同时开多个进程以满足发送需求。由于所有Submit进程都需要从send表中读取进行发送，为了防止同一条信息的重复发送，需要对不同进程能取到的记录进行区分，这是其一。Submit进行发送之前，需要对每个要发送的信息进行SEQUENCEID的分配，SEQUENCEID的分配是在核心资源类中维护的，不同进程间无法通过原子操作共享，因此只能在并发表中对不同并发号进行区间分配，从根源上防止冲突的出现，这是其二。结合以上两点原因，可以看出并发控制的必要性。为了方便后续的维护工作，尽量将并发配置与程序代码解耦。<br>基于以上分析，将Submit和Deliver分成两个进程分别开发，其中Submit需要结合数据库进行并发配置，Deliver也需要开多并发，但是并不存在表冲突，因此只需要在程序中做好并发控制即可。</p>
 <h2 id="发送短信（Submit）"><a href="#发送短信（Submit）" class="headerlink" title="发送短信（Submit）"></a>发送短信（Submit）</h2><h3 id="功能描述"><a href="#功能描述" class="headerlink" title="功能描述"></a>功能描述</h3><p>对<code>SMGP_MSG_SEND</code>表进行扫描，对符合条件的短信进行发送(0x00000002)并分配消息流水号<code>SMGP_SEQUENCEID</code>，读取0x000000002,使用<code>SMGP_SEQUENCEID</code>进行匹配，获得网关分配的消息ID：<code>SMGP_MSGID</code>，然后将记录转移到<code>SMGP_MSG_SEND_LOG</code>表和映射表<code>SMGP_MSG_SEQ_REC</code>中。对于拆成t个包的长短信，其<code>SMGP_SEQUENCEID</code>相同，<code>SMGP_MSGID</code>不同，收到的t个0x00000002包含t个<code>SMGP_MSGID</code>，最终在<code>SMGP_MSG_SEND_LOG</code>表中保存的是最后一次收到的<code>SMGP_MSGID</code>。</p>
 <h3 id="代码结构"><a href="#代码结构" class="headerlink" title="代码结构"></a>代码结构</h3><p>对于单个进程，维护1个socket连接和5个数据库长连接。数据库连接中三个用于三个发送线程，分别发送优先级3、优先级2&amp;1以及优先级0的短信，另外两个用于心跳线程和应答线程。接下来简单介绍各线程的功能。</p>
@@ -294,6 +295,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/10/15/SMGP短信网关开发（四）具体实现中的几个问题/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          SMGP短信网关开发（四）具体实现中的几个问题
+        
+      </div>
+    </a>
   
   
     <a href="/2019/10/12/SMGP短信网关开发（二）数据库设计/" id="article-nav-older" class="article-nav-link-wrap">
@@ -448,15 +458,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">语法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">枚举</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">语法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -484,15 +494,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">代码块</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -512,15 +522,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">面向对象</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">面向对象</a>
               </li>
             
             <div class="clearfix"></div>

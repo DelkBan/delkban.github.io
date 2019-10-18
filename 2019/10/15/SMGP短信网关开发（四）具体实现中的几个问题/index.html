@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 类和对象 | Deklban的博客</title>
+  <title>SMGP短信网关开发（四）具体实现中的几个问题 | Deklban的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="每天都打满鸡血">
-<meta name="keywords" content="电气，小白，编程">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Deklban的博客">
-<meta property="og:url" content="http://yoursite.com/tags/类和对象/index.html">
+  <meta name="description" content="socket长连接的保持 ack数据库长连接的保持 滑动窗口 核心资源类 本篇是SMGP短信网关开发的第四篇，对代码实现中的一些问题进行分析。">
+<meta name="keywords" content="短信网关,Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SMGP短信网关开发（四）具体实现中的几个问题">
+<meta property="og:url" content="http://yoursite.com/2019/10/15/SMGP短信网关开发（四）具体实现中的几个问题/index.html">
 <meta property="og:site_name" content="Deklban的博客">
-<meta property="og:description" content="每天都打满鸡血">
+<meta property="og:description" content="socket长连接的保持 ack数据库长连接的保持 滑动窗口 核心资源类 本篇是SMGP短信网关开发的第四篇，对代码实现中的一些问题进行分析。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-18T07:27:10.369Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Deklban的博客">
-<meta name="twitter:description" content="每天都打满鸡血">
+<meta name="twitter:title" content="SMGP短信网关开发（四）具体实现中的几个问题">
+<meta name="twitter:description" content="socket长连接的保持 ack数据库长连接的保持 滑动窗口 核心资源类 本篇是SMGP短信网关开发的第四篇，对代码实现中的一些问题进行分析。">
   
     <link rel="alternative" href="/atom.xml" title="Deklban的博客" type="application/atom+xml">
   
@@ -158,68 +159,159 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-SMGP短信网关开发（四）具体实现中的几个问题" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/21/返回什么才好呢/" class="archive-article-date">
-  	<time datetime="2018-09-21T00:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-21</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/21/返回什么才好呢/">返回什么才好呢</a>
+    <h1 class="article-title" itemprop="name">
+      SMGP短信网关开发（四）具体实现中的几个问题
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/10/15/SMGP短信网关开发（四）具体实现中的几个问题/" class="archive-article-date">
+  	<time datetime="2019-10-15T03:03:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>socket长连接的保持</p>
+<p>ack数据库长连接的保持</p>
+<p>滑动窗口</p>
+<p>核心资源类</p>
+<p>本篇是SMGP短信网关开发的第四篇，对代码实现中的一些问题进行分析。</p>
+<a id="more"></a>
+<p>本篇将会以各个小标题的内容分开讨论，各部分之间不存在必然的逻辑关系。</p>
+<h3 id="长连接的保持"><a href="#长连接的保持" class="headerlink" title="长连接的保持"></a>长连接的保持</h3><p>为了保持Socket长连接，服务端会每隔一定时间发送0004消息，我方也会在心跳线程中对长连接进行维护。<br>除了Socket长连接，程序中还维护着和数据库之间的长连接。对于Submit进程来说，SendAckThread的数据库连接在长时间没有消息过来的时候一直处于闲置状态，因此有必要在这里手动增加一个连接的保持动作。</p>
+<h3 id="数据库中的时间格式"><a href="#数据库中的时间格式" class="headerlink" title="数据库中的时间格式"></a>数据库中的时间格式</h3><p>要使用Timestamp而不是date</p>
+<h3 id="滑动窗口"><a href="#滑动窗口" class="headerlink" title="滑动窗口"></a>滑动窗口</h3><p>在进行压力测试的时候，发现进行一段时间的发送后，服务端会在8002中报系统忙的错误。分析得知对方系统处理速度跟不上这边的发送速度，产生了数据积压，导致了错误的产生。<br>解决方案是在核心资源类中增加一个流量控制的方法。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">短信网关</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">引用</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">类和对象</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/15/SMGP短信网关开发（四）具体实现中的几个问题/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/10/14/SMGP短信网关开发（三）程序结构设计/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SMGP短信网关开发（三）程序结构设计</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -242,9 +334,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
